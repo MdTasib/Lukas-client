@@ -4,7 +4,7 @@ import logo from "../assets/images/logo.png";
 
 const Navbar = () => {
 	return (
-		<nav className='navbar navbar-expand-lg bg-light'>
+		<nav className='navbar navbar-expand-lg'>
 			<div className='container-fluid'>
 				<Link className='navbar-brand' to='/'>
 					<img src={logo} alt='' />
@@ -23,22 +23,22 @@ const Navbar = () => {
 					<ul className='navbar-nav ms-auto'>
 						<li className='nav-item'>
 							<Link className='nav-link active' aria-current='page' to='/'>
-								Home
+								<small>Home</small>
 							</Link>
 						</li>
 						<li className='nav-item'>
 							<Link className='nav-link' to='/about'>
-								About
+								<small>About</small>
 							</Link>
 						</li>
 						<li className='nav-item'>
 							<Link className='nav-link' to='/login'>
-								Login
+								<small>Login</small>
 							</Link>
 						</li>
 						<li className='nav-item'>
 							<Link className='nav-link' to='/singup'>
-								Singup
+								<small>Singup</small>
 							</Link>
 						</li>
 					</ul>

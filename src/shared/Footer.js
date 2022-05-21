@@ -1,24 +1,25 @@
 import React from "react";
+import logo from "../assets/images/logo-light.png";
 
 const Footer = () => {
 	return (
-		<div className='bg-black py-5 text-light'>
+		<div className='bg-dark py-5 text-light'>
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-3'>
-						{/* <img src={logo} alt='' height='50' /> */}
+						<img src={logo} alt='' height='50' />
 						<p className='pt-4'>
-							Copyright &copy; {new Date().getFullYear()} Online Photography
+							Copyright &copy; {new Date().getFullYear()} Online Lukas
 						</p>
 					</div>
 					<div className='col-md-3'></div>
 					<div className='col-md-3'>
 						<ul className='list-unstyled'>
 							<li>
-								<small>About Online Photography</small>
+								<small>About Online Lukas</small>
 							</li>
 							<li>
-								<small>Read Out Photography</small>
+								<small>Read Out Lukas</small>
 							</li>
 							<li>
 								<small>Sing Up To Deliver</small>
@@ -40,7 +41,7 @@ const Footer = () => {
 								<small>View All Clints</small>
 							</li>
 							<li>
-								<small>Photography</small>
+								<small>Lukas</small>
 							</li>
 						</ul>
 					</div>
