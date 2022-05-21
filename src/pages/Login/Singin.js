@@ -39,7 +39,6 @@ const Singin = () => {
 	}
 
 	if (user) {
-		console.log(user);
 		toast.success("User Created Successfully");
 	}
 

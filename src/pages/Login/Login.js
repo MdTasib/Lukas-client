@@ -26,7 +26,6 @@ const Login = () => {
 	}
 
 	if (user) {
-		console.log(user);
 		toast.success("User Login Successfully");
 	}
 
