@@ -1,4 +1,5 @@
 import React from "react";
+import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
@@ -17,6 +18,7 @@ function App() {
 				<Route path='/singup' element={<Singin />} />
 			</Routes>
 			<Footer />
+			<Toaster />
 		</div>
 	);
 }

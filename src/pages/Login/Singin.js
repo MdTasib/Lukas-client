@@ -1,8 +1,14 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+	useCreateUserWithEmailAndPassword,
+	useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../../shared/Loading";
+import background from "../../assets/images/loginbg.jpg";
+import workGif from "../../assets/images/work.gif";
+import toast from "react-hot-toast";
 
 const Singin = () => {
 	const nameRef = useRef("");
@@ -11,6 +17,7 @@ const Singin = () => {
 	const confirmPasswordRef = useRef("");
 	const [createUserWithEmailAndPassword, user, loading, error] =
 		useCreateUserWithEmailAndPassword(auth);
+	const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
 	const handleSingup = async event => {
 		event.preventDefault();
@@ -20,13 +27,16 @@ const Singin = () => {
 		const confirmPassword = confirmPasswordRef.current.value;
 
 		if (password !== confirmPassword) {
-			return console.log("password not match");
+			return toast.error("Password Not Match");
 		} else {
-			await createUserWithEmailAndPassword(email, password);
+			await createUserWithEmailAndPassword(email, password).then(res =>
+				toast.success("User Created Successfully")
+			);
+			await updateProfile({ displayName: name });
 		}
 	};
 
-	if (loading) {
+	if (loading || updating) {
 		return <Loading />;
 	}
 
@@ -35,16 +45,19 @@ const Singin = () => {
 	}
 
 	return (
-		<div className='container'>
-			<div className='text-center py-4'>
-				<h2>
-					<Link className='text-dark text-decoration-none' to='/'>
+		<div className=''>
+			<div
+				className='text-center py-5 text-white'
+				style={{ backgroundImage: `url(${background})` }}>
+				<h2 className='pb-3'>Sing Up</h2>
+				<h6>
+					<Link className='text-white text-decoration-none' to='/'>
 						Home
 					</Link>
 					/ Sing In
-				</h2>
+				</h6>
 			</div>
-			<div className='row bg-light p-5 rounded '>
+			<div className='row p-5 rounded container mx-auto'>
 				<div className='col-md-6'>
 					<h3 className='border-bottom border-3 border-dark d-inline-block pb-2'>
 						Sing In
@@ -91,7 +104,9 @@ const Singin = () => {
 								required
 							/>
 						</div>
-						{error && <small>{error.message}</small>}
+						{(error || updateError) && (
+							<small>{error?.message || updateError?.message}</small>
+						)}
 						<p>
 							<small>
 								📧 Forgot your <b>Password ?</b>
@@ -107,8 +122,8 @@ const Singin = () => {
 						</button>
 					</form>
 				</div>
-				<div className='col-md-6 mt-3'>
-					<h3>Image</h3>
+				<div className='col-md-6 mt-3 text-end'>
+					<img src={workGif} alt='' />
 				</div>
 			</div>
 		</div>

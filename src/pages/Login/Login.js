@@ -1,18 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import background from "../../assets/images/loginbg.jpg";
+import workGif from "../../assets/images/work.gif";
 
 const Login = () => {
 	return (
-		<div className='container'>
-			<div className='text-center py-4'>
-				<h2>
-					<Link className='text-dark text-decoration-none' to='/'>
+		<div className=''>
+			<div
+				className='text-center py-5 text-white'
+				style={{ backgroundImage: `url(${background})` }}>
+				<h2 className='pb-3'>Log In</h2>
+				<h6>
+					<Link className='text-white text-decoration-none' to='/'>
 						Home
 					</Link>
 					/ Log In
-				</h2>
+				</h6>
 			</div>
-			<div className='row bg-light p-5 rounded '>
+			<div className='row p-5 rounded container mx-auto'>
 				<div className='col-md-6'>
 					<h3 className='border-bottom border-3 border-dark d-inline-block pb-2'>
 						Log In
@@ -60,7 +65,7 @@ const Login = () => {
 					</form>
 				</div>
 				<div className='col-md-6 mt-3'>
-					<h3>Image</h3>
+					<img src={workGif} alt='' />
 				</div>
 			</div>
 		</div>
