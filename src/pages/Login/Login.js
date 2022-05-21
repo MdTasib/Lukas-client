@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import background from "../../assets/images/loginbg.jpg";
 import workGif from "../../assets/images/work.gif";
+import auth from "../../firebase.init";
+import Loading from "../../shared/Loading";
 
 const Login = () => {
+	const emailRef = useRef("");
+	const passwordRef = useRef("");
+	const [signInWithEmailAndPassword, user, loading, error] =
+		useSignInWithEmailAndPassword(auth);
+
+	const handleLogin = async event => {
+		event.preventDefault();
+		const email = emailRef.current.value;
+		const password = passwordRef.current.value;
+
+		await signInWithEmailAndPassword(email, password);
+	};
+
+	if (loading) {
+		return <Loading />;
+	}
+
+	if (user) {
+		console.log(user);
+		toast.success("User Login Successfully");
+	}
+
 	return (
 		<div className=''>
 			<div
@@ -24,12 +50,13 @@ const Login = () => {
 					</h3>
 					<small className='d-block'>Insert your account information:</small>
 
-					<form>
+					<form onSubmit={handleLogin}>
 						<div class='input-group my-3'>
 							<span class='input-group-text' id='basic-addon1'>
 								📧
 							</span>
 							<input
+								ref={emailRef}
 								type='email'
 								class='form-control'
 								placeholder='Email'
@@ -42,6 +69,7 @@ const Login = () => {
 								🔐
 							</span>
 							<input
+								ref={passwordRef}
 								type='password'
 								class='form-control'
 								placeholder='Password'
@@ -49,6 +77,7 @@ const Login = () => {
 								aria-describedby='basic-addon2'
 							/>
 						</div>
+						{error && <small className='text-danger'>{error?.message}</small>}
 						<p>
 							<small>
 								📧 Forgot your <b>Password ?</b>

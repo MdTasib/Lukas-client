@@ -29,9 +29,7 @@ const Singin = () => {
 		if (password !== confirmPassword) {
 			return toast.error("Password Not Match");
 		} else {
-			await createUserWithEmailAndPassword(email, password).then(res =>
-				toast.success("User Created Successfully")
-			);
+			await createUserWithEmailAndPassword(email, password);
 			await updateProfile({ displayName: name });
 		}
 	};
@@ -42,6 +40,7 @@ const Singin = () => {
 
 	if (user) {
 		console.log(user);
+		toast.success("User Created Successfully");
 	}
 
 	return (
@@ -105,7 +104,9 @@ const Singin = () => {
 							/>
 						</div>
 						{(error || updateError) && (
-							<small>{error?.message || updateError?.message}</small>
+							<small className='text-danger'>
+								{error?.message || updateError?.message}
+							</small>
 						)}
 						<p>
 							<small>
