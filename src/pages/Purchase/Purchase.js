@@ -13,7 +13,6 @@ const Purchase = () => {
 	const addressRef = useRef("");
 	const phoneRef = useRef("");
 	const productQuantityRef = useRef("");
-	const [isDisable, setIsDisable] = useState(true);
 
 	const { data: product, isLoading } = useQuery(["product", id], () =>
 		fetch(`http://localhost:5000/product/${id}`, {
@@ -34,7 +33,6 @@ const Purchase = () => {
 		const productQuantity = productQuantityRef.current.value;
 
 		if (productQuantity > product.available) {
-			setIsDisable(false);
 			return toast.error("Product not stock");
 		}
 
@@ -42,10 +40,25 @@ const Purchase = () => {
 			userName: user?.displayName,
 			userEmail: user?.email,
 			name: product.name,
+			perPrice: product.perPrice,
 			address,
 			phone,
 			productQuantity,
 		};
+
+		fetch("http://localhost:5000/product", {
+			method: "POST",
+			headers: {
+				"content-type": "application/json",
+			},
+			body: JSON.stringify(purchaseProduct),
+		})
+			.then(res => res.json())
+			.then(data => {
+				if (data.acknowledged) {
+					toast.success("Successfully Purchase Product");
+				}
+			});
 
 		console.log(purchaseProduct);
 	};
@@ -121,10 +134,7 @@ const Purchase = () => {
 								))}
 							</select>
 						</div>
-						<button
-							disabled={isDisable}
-							type='submit'
-							className='btn btn-dark mt-2 w-100'>
+						<button type='submit' className='btn btn-dark mt-2 w-100'>
 							Place Order
 						</button>
 					</form>
@@ -139,6 +149,12 @@ const Purchase = () => {
 						<b>Available</b> : {product.available}
 					</p>
 				</div>
+			</div>
+			<div className='container py-5'>
+				<h3 className='border-bottom border-3 border-dark d-inline-block pb-2'>
+					Description
+				</h3>
+				<p>{product.description}</p>
 			</div>
 		</div>
 	);
