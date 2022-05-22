@@ -10,6 +10,11 @@ import About from "./pages/About/About";
 import Blog from "./pages/Blog/Blog";
 import RequireAuth from "./pages/Login/RequireAuth";
 import Purchase from "./pages/Purchase/Purchase";
+import NotFound from "./pages/NotFound/NotFound";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import MyOrders from "./pages/Dashboard/MyOrders";
+import MyReview from "./pages/Dashboard/MyReview";
+import Profile from "./pages/Dashboard/Profile";
 
 function App() {
 	return (
@@ -34,9 +39,15 @@ function App() {
 						</RequireAuth>
 					}
 				/>
+				<Route path='/dashboard' element={<Dashboard />}>
+					<Route index element={<MyOrders />} />
+					<Route path='/dashboard/review' element={<MyReview />} />
+					<Route path='/dashboard/profile' element={<Profile />} />
+				</Route>
 				<Route path='/blog' element={<Blog />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='/singup' element={<Singin />} />
+				<Route path='*' element={<NotFound />} />
 			</Routes>
 			<Footer />
 			<Toaster />
