@@ -40,6 +40,7 @@ const Purchase = () => {
 			userName: user?.displayName,
 			userEmail: user?.email,
 			name: product.name,
+			img: product.img,
 			perPrice: product.perPrice,
 			address,
 			phone,
@@ -57,10 +58,9 @@ const Purchase = () => {
 			.then(data => {
 				if (data.acknowledged) {
 					toast.success("Successfully Purchase Product");
+					event.target.reset();
 				}
 			});
-
-		console.log(purchaseProduct);
 	};
 
 	return (

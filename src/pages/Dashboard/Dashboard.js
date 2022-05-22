@@ -4,7 +4,7 @@ import CustomLink from "../../shared/CustomLink";
 
 const Dashboard = () => {
 	return (
-		<div className='row container'>
+		<div className='row container-fluid'>
 			<div className='col-md-3 bg-dark'>
 				<nav class='navbar navbar-expand-lg'>
 					<div class='container flex-column'>
@@ -50,8 +50,7 @@ const Dashboard = () => {
 					</div>
 				</nav>
 			</div>
-			<div className='col-md-9'>
-				<h2>Dashboard</h2>
+			<div className='col-md-9 ps-5'>
 				<Outlet />
 			</div>
 		</div>
