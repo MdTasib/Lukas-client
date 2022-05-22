@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import background from "../../assets/images/loginbg.jpg";
 import workGif from "../../assets/images/work.gif";
 import auth from "../../firebase.init";
@@ -12,6 +12,10 @@ const Login = () => {
 	const passwordRef = useRef("");
 	const [signInWithEmailAndPassword, user, loading, error] =
 		useSignInWithEmailAndPassword(auth);
+	const location = useLocation();
+	const navigate = useNavigate();
+
+	let from = location.state?.from?.pathname || "/";
 
 	const handleLogin = async event => {
 		event.preventDefault();
@@ -27,6 +31,7 @@ const Login = () => {
 
 	if (user) {
 		toast.success("User Login Successfully");
+		navigate(from, { replace: true });
 	}
 
 	return (

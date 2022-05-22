@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
 	useCreateUserWithEmailAndPassword,
 	useUpdateProfile,
@@ -18,6 +18,10 @@ const Singin = () => {
 	const [createUserWithEmailAndPassword, user, loading, error] =
 		useCreateUserWithEmailAndPassword(auth);
 	const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+	const location = useLocation();
+	const navigate = useNavigate();
+
+	let from = location.state?.from?.pathname || "/";
 
 	const handleSingup = async event => {
 		event.preventDefault();
@@ -40,6 +44,7 @@ const Singin = () => {
 
 	if (user) {
 		toast.success("User Created Successfully");
+		navigate(from, { replace: true });
 	}
 
 	return (

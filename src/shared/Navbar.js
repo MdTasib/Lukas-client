@@ -45,6 +45,11 @@ const Navbar = () => {
 								<small>About</small>
 							</Link>
 						</li>
+						<li className='nav-item'>
+							<Link className='nav-link' to='/blog'>
+								<small>Blog</small>
+							</Link>
+						</li>
 						{!user && (
 							<li className='nav-item'>
 								<Link className='nav-link' to='/login'>
