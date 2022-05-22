@@ -5,30 +5,58 @@ import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../../shared/Loading";
+import Swal from "sweetalert2";
 
 const MyOrders = () => {
 	const [user, loading] = useAuthState(auth);
 	const navigate = useNavigate();
 
-	const { data: purcahsesOrder, isLoading } = useQuery(
-		["purcahsesOrder", user?.email],
-		() =>
-			fetch(`http://localhost:5000/purcahses?email=${user?.email}`, {
-				method: "GET",
-				headers: {
-					authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-				},
-			}).then(res => {
-				console.log(res);
-				if (res.status === 401 || res.status === 403) {
-					signOut(auth);
-					localStorage.removeItem("accessToken");
-					navigate("/");
-					console.log(res);
-				}
-				return res.json();
-			})
+	const {
+		data: purcahsesOrder,
+		isLoading,
+		refetch,
+	} = useQuery(["purcahsesOrder", user?.email], () =>
+		fetch(`http://localhost:5000/purcahses?email=${user?.email}`, {
+			method: "GET",
+			headers: {
+				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+			},
+		}).then(res => {
+			if (res.status === 401 || res.status === 403) {
+				signOut(auth);
+				localStorage.removeItem("accessToken");
+				navigate("/");
+			}
+			return res.json();
+		})
 	);
+
+	const handleDelete = id => {
+		Swal.fire({
+			title: "Are you sure?",
+			text: "You Delete This Product",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Yes, delete it!",
+		}).then(result => {
+			if (result.isConfirmed) {
+				fetch(`http://localhost:5000/purcahses/${id}`, {
+					method: "DELETE",
+					headers: {
+						"content-type": "application/json",
+						authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+					},
+				})
+					.then(res => res.json())
+					.then(data => {
+						refetch();
+					});
+				Swal.fire("Deleted!", "Doctor has been deleted.", "success");
+			}
+		});
+	};
 
 	if (loading || isLoading) {
 		return <Loading />;
@@ -55,7 +83,14 @@ const MyOrders = () => {
 							<td>{order.name}</td>
 							<td>{order.productQuantity}</td>
 							<td>
-								<button className='btn btn-sm btn-danger'>Cancel</button>
+								<button
+									onClick={() => handleDelete(order._id)}
+									className='btn btn-sm btn-outline-danger'>
+									Cancel
+								</button>
+								<button className='btn btn-sm btn-outline-success ms-2'>
+									Pay
+								</button>
 							</td>
 						</tr>
 					))}
