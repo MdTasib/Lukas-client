@@ -12,11 +12,6 @@ const Navbar = () => {
 	if (loading) {
 		return <Loading />;
 	}
-
-	if (user) {
-		console.log(user);
-	}
-
 	return (
 		<nav className='navbar navbar-expand-lg'>
 			<div className='container'>

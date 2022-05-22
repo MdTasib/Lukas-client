@@ -1,0 +1,50 @@
+[
+	{
+		"name": "Auto Clutch & Brake",
+		"img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-6.png",
+		"description": "Pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circles occur in and pain can procure him some great ple cum solute nobie est eligendi option",
+		"perPrice": 500,
+		"available": 300,
+		"orderQuantity": [50, 100, 120, 150]
+	},
+	{
+		"name": "Auto Clutch & Brake",
+		"img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-2.png",
+		"description": "Pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circles occur in and pain can procure him some great ple cum solute nobie est eligendi option",
+		"perPrice": 600,
+		"available": 200,
+		"orderQuantity": [50, 100, 120, 150]
+	},
+	{
+		"name": "Auto Clutch & Brake",
+		"img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-1.png",
+		"description": "Pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circles occur in and pain can procure him some great ple cum solute nobie est eligendi option",
+		"perPrice": 700,
+		"available": 500,
+		"orderQuantity": [50, 100, 120, 150]
+	},
+	{
+		"name": "Auto Clutch & Brake",
+		"img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-3.png",
+		"description": "Pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circles occur in and pain can procure him some great ple cum solute nobie est eligendi option",
+		"perPrice": 400,
+		"available": 300,
+		"orderQuantity": [50, 100, 120, 150, 900]
+	},
+	{
+		"name": "Auto Clutch & Brake",
+		"img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-4.png",
+		"description": "Pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circles occur in and pain can procure him some great ple cum solute nobie est eligendi option",
+		"perPrice": 2500,
+		"available": 300,
+		"orderQuantity": [50, 100, 120, 150, 500]
+	},
+	{
+		"name": "Auto Clutch & Brake",
+		"img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-5.png",
+		"description": "Pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circles occur in and pain can procure him some great ple cum solute nobie est eligendi option",
+		"perPrice": 300,
+		"available": 300,
+		"orderQuantity": [50, 100, 120, 150, 400]
+	}
+]
