@@ -5,6 +5,7 @@ import Loading from "../../shared/Loading";
 import background from "../../assets/images/loginbg.jpg";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import toast from "react-hot-toast";
 
 const Purchase = () => {
 	const { id } = useParams();
@@ -12,9 +13,14 @@ const Purchase = () => {
 	const addressRef = useRef("");
 	const phoneRef = useRef("");
 	const productQuantityRef = useRef("");
+	const [isDisable, setIsDisable] = useState(true);
 
 	const { data: product, isLoading } = useQuery(["product", id], () =>
-		fetch(`http://localhost:5000/product/${id}`).then(res => res.json())
+		fetch(`http://localhost:5000/product/${id}`, {
+			headers: {
+				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+			},
+		}).then(res => res.json())
 	);
 
 	if (isLoading) {
@@ -22,11 +28,16 @@ const Purchase = () => {
 	}
 
 	const handlePurchase = event => {
+		event.preventDefault();
 		const address = addressRef.current.value;
 		const phone = phoneRef.current.value;
 		const productQuantity = productQuantityRef.current.value;
 
-		event.preventDefault();
+		if (productQuantity > product.available) {
+			setIsDisable(false);
+			return toast.error("Product not stock");
+		}
+
 		const purchaseProduct = {
 			userName: user?.displayName,
 			userEmail: user?.email,
@@ -110,7 +121,10 @@ const Purchase = () => {
 								))}
 							</select>
 						</div>
-						<button type='submit' className='btn btn-dark mt-2 w-100'>
+						<button
+							disabled={isDisable}
+							type='submit'
+							className='btn btn-dark mt-2 w-100'>
 							Place Order
 						</button>
 					</form>

@@ -53,7 +53,12 @@ const Navbar = () => {
 							</li>
 						)}
 						{user && (
-							<li className='nav-item' onClick={() => signOut(auth)}>
+							<li
+								className='nav-item'
+								onClick={() => {
+									signOut(auth);
+									localStorage.removeItem("accessToken");
+								}}>
 								<small className='nav-link btn btn-dark text-white'>
 									Log Out
 								</small>

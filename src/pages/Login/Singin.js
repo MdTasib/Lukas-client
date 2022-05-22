@@ -9,6 +9,7 @@ import Loading from "../../shared/Loading";
 import background from "../../assets/images/loginbg.jpg";
 import workGif from "../../assets/images/work.gif";
 import toast from "react-hot-toast";
+import useToken from "../../hooks/useToken";
 
 const Singin = () => {
 	const nameRef = useRef("");
@@ -20,6 +21,7 @@ const Singin = () => {
 	const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 	const location = useLocation();
 	const navigate = useNavigate();
+	const [token] = useToken(user);
 
 	let from = location.state?.from?.pathname || "/";
 
@@ -42,7 +44,7 @@ const Singin = () => {
 		return <Loading />;
 	}
 
-	if (user) {
+	if (token) {
 		toast.success("User Created Successfully");
 		navigate(from, { replace: true });
 	}

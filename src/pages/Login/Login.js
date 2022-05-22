@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import background from "../../assets/images/loginbg.jpg";
 import workGif from "../../assets/images/work.gif";
 import auth from "../../firebase.init";
+import useToken from "../../hooks/useToken";
 import Loading from "../../shared/Loading";
 
 const Login = () => {
@@ -14,6 +15,7 @@ const Login = () => {
 		useSignInWithEmailAndPassword(auth);
 	const location = useLocation();
 	const navigate = useNavigate();
+	const [token] = useToken(user);
 
 	let from = location.state?.from?.pathname || "/";
 
@@ -29,7 +31,7 @@ const Login = () => {
 		return <Loading />;
 	}
 
-	if (user) {
+	if (token) {
 		toast.success("User Login Successfully");
 		navigate(from, { replace: true });
 	}
