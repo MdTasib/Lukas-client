@@ -55,27 +55,27 @@ const Login = () => {
 					<small className='d-block'>Insert your account information:</small>
 
 					<form onSubmit={handleLogin}>
-						<div class='input-group my-3'>
-							<span class='input-group-text' id='basic-addon1'>
+						<div className='input-group my-3'>
+							<span className='input-group-text' id='basic-addon1'>
 								📧
 							</span>
 							<input
 								ref={emailRef}
 								type='email'
-								class='form-control'
+								className='form-control'
 								placeholder='Email'
 								aria-label='Email'
 								aria-describedby='basic-addon1'
 							/>
 						</div>
-						<div class='input-group my-3'>
-							<span class='input-group-text' id='basic-addon2'>
+						<div className='input-group my-3'>
+							<span className='input-group-text' id='basic-addon2'>
 								🔐
 							</span>
 							<input
 								ref={passwordRef}
 								type='password'
-								class='form-control'
+								className='form-control'
 								placeholder='Password'
 								aria-label='Password'
 								aria-describedby='basic-addon2'
@@ -92,7 +92,7 @@ const Login = () => {
 								If you have an account, Please <b>Register Here</b>
 							</Link>
 						</p>
-						<button type='submit' class='btn btn-dark mt-2'>
+						<button type='submit' className='btn btn-dark mt-2'>
 							Log in
 						</button>
 					</form>

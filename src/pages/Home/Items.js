@@ -4,16 +4,21 @@ import Loading from "../../shared/Loading";
 import Item from "./Item";
 
 const Items = () => {
-	const [products, setProducts] = useState([]);
+	// const [products, setProducts] = useState([]);
 
-	useEffect(() => {
-		fetch("products.json")
-			.then(res => res.json())
-			.then(data => setProducts(data));
-	}, []);
-	// const { data: products, isLoading } = useQuery("products", () =>
-	// 	fetch("products.json").then(res => res.json())
-	// );
+	// useEffect(() => {
+	// 	fetch("http://localhost:5000/product")
+	// 		.then(res => res.json())
+	// 		.then(data => setProducts(data));
+	// }, []);
+
+	const { data: products, isLoading } = useQuery("products", () =>
+		fetch("http://localhost:5000/product").then(res => res.json())
+	);
+
+	if (isLoading) {
+		return <Loading />;
+	}
 
 	return (
 		<div className='container py-5'>
@@ -24,9 +29,9 @@ const Items = () => {
 					this product from here any time any where so sop now
 				</small>
 			</div>
-			<div class='row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center pt-5'>
+			<div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center pt-5'>
 				{products.map(product => (
-					<Item product={product} />
+					<Item key={product._id} product={product} />
 				))}
 			</div>
 		</div>

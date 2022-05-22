@@ -9,6 +9,7 @@ import Navbar from "./shared/Navbar";
 import About from "./pages/About/About";
 import Blog from "./pages/Blog/Blog";
 import RequireAuth from "./pages/Login/RequireAuth";
+import Purchase from "./pages/Purchase/Purchase";
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 						</RequireAuth>
 					}
 				/>
+				<Route path='/purchase/:id' element={<Purchase />} />
 				<Route path='/blog' element={<Blog />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='/singup' element={<Singin />} />

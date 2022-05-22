@@ -22,7 +22,7 @@ const BusinessInfo = () => {
 		<div className='py-5' style={bg}>
 			<div className='container'>
 				<h3 className='text-center pb-4 text-white fw-bold'>Our Achievement</h3>
-				<div class='row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4'>
+				<div className='row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4'>
 					{infos.map(info => (
 						<div className='text-center text-white' key={info.id}>
 							<img src={info.icon} alt='' className='w-25 pb-3' />
