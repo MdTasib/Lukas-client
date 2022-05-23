@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useQuery } from "react-query";
+import Swal from "sweetalert2";
 import auth from "../../firebase.init";
 import Loading from "../../shared/Loading";
 
@@ -60,9 +61,21 @@ const EditProfile = () => {
 						.then(res => res.json())
 						.then(data => {
 							if (data.acknowledged) {
-								toast.success("User Profile Updated Successfully");
+								Swal.fire({
+									position: "top-center",
+									icon: "success",
+									title: "User Profile Updated Successfully",
+									showConfirmButton: false,
+									timer: 1500,
+								});
 							} else {
-								toast.error("Failed To Add User Profile Updated");
+								Swal.fire({
+									position: "top-center",
+									icon: "warning",
+									title: "Failed To Add User Profile Updated",
+									showConfirmButton: false,
+									timer: 1500,
+								});
 							}
 							refetch();
 							reset();
@@ -89,7 +102,7 @@ const EditProfile = () => {
 							className='bg-light mx-auto text-black rounded-circle d-flex justify-content-center align-items-center border overflow-hidden'
 							style={{ width: "100px", height: "100px" }}>
 							{profile?.img ? (
-								<img src={profile?.img} className='w-100' alt='' />
+								<img src={profile?.img} className='w-100' alt='avater' />
 							) : (
 								<small className='fw-bold'>{user?.email.slice(0, 1)}</small>
 							)}

@@ -1,77 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../../shared/Loading";
 
 const Profile = () => {
 	const [user, loading] = useAuthState(auth);
-	const { register, handleSubmit, reset } = useForm();
+	const [userProfile, setUserProfile] = useState({});
 
-	const {
-		data: profile,
-		isLoading,
-		refetch,
-	} = useQuery(["profile", user?.email], () =>
+	useEffect(() => {
 		fetch(`http://localhost:5000/userProfile/${user?.email}`, {
 			headers: {
 				"content-type": "application/json",
 				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
 			},
-		}).then(res => res.json())
-	);
-
-	const onSubmit = async data => {
-		const image = data.image[0];
-		const formData = new FormData();
-		formData.append("image", image);
-
-		fetch(
-			`https://api.imgbb.com/1/upload?key=eb7bb93d7839539a8bddb41471f7e0da`,
-			{
-				method: "POST",
-				body: formData,
-			}
-		)
+		})
 			.then(res => res.json())
-			.then(result => {
-				if (result.success) {
-					const img = result.data.url;
+			.then(data => setUserProfile(data));
+	}, [user?.email]);
 
-					const userProfile = {
-						userName: user?.displayName,
-						email: user?.email,
-						img,
-						address: data.address,
-						phone: data.phone,
-						city: data.city,
-					};
+	console.log(userProfile);
 
-					fetch(`http://localhost:5000/userProfile/${user?.email}`, {
-						method: "PUT",
-						headers: {
-							"content-type": "application/json",
-							authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-						},
-						body: JSON.stringify(userProfile),
-					})
-						.then(res => res.json())
-						.then(data => {
-							if (data.acknowledged) {
-								toast.success("User Profile Updated Successfully");
-							} else {
-								toast.error("Failed To Add User Profile Updated");
-							}
-							refetch();
-							reset();
-						});
-				}
-			});
-	};
-
-	if (loading || isLoading) {
+	if (loading) {
 		return <Loading />;
 	}
 
@@ -79,29 +30,19 @@ const Profile = () => {
 		<div className='row rounded container justify-content-start pb-5'>
 			<div className='col-md-10'>
 				<h3 className='border-bottom border-3 border-dark d-inline-block pb-2'>
-					Edit Profile
+					User Profile
 				</h3>
-				<small className='d-block'>Insert your profile information:</small>
 
-				<form onSubmit={handleSubmit(onSubmit)}>
+				<form onSubmit={e => e.preventDefault()}>
 					<div className='mt-3 text-end d-flex  flex-column align-items-center justify-content-center'>
 						<div
 							className='bg-light mx-auto text-black rounded-circle d-flex justify-content-center align-items-center border overflow-hidden'
 							style={{ width: "100px", height: "100px" }}>
-							{profile?.img ? (
-								<img src={profile?.img} className='w-100' alt='' />
+							{userProfile?.img ? (
+								<img src={userProfile?.img} alt='' className='w-100' />
 							) : (
 								<small className='fw-bold'>{user?.email.slice(0, 1)}</small>
 							)}
-						</div>
-
-						<div className='pt-4'>
-							<input
-								class='form-control form-control'
-								id='formFileLg'
-								type='file'
-								{...register("image", { required: { value: true } })}
-							/>
 						</div>
 					</div>
 
@@ -128,11 +69,11 @@ const Profile = () => {
 							Address
 						</label>
 						<input
-							{...register("address", { required: { value: true } })}
 							type='text'
 							class='form-control'
 							id='inputAddress'
-							placeholder={profile?.address}
+							placeholder={userProfile?.address}
+							readOnly
 						/>
 					</div>
 					<div className='row'>
@@ -141,11 +82,11 @@ const Profile = () => {
 								Phone
 							</label>
 							<input
-								{...register("phone", { required: { value: true } })}
 								type='phone'
 								class='form-control'
 								id='phone'
-								placeholder={profile?.phone}
+								placeholder={userProfile?.phone}
+								readOnly
 							/>
 						</div>
 						<div class='col-md-6'>
@@ -153,19 +94,24 @@ const Profile = () => {
 								City
 							</label>
 							<input
-								{...register("city", { required: { value: true } })}
 								type='text'
 								class='form-control'
 								id='inputCity'
-								placeholder={profile?.city}
+								placeholder={userProfile?.city}
+								readOnly
 							/>
 						</div>
 					</div>
-
-					<button type='submit' className='btn btn-dark mt-2 w-100'>
-						SAVE
-					</button>
 				</form>
+				<p className='pt-4'>
+					Do you want to edit your profile?{" "}
+					<b>Please Click EDIT PROFILE Button</b>
+				</p>
+				<Link
+					to='/dashboard/edit-profile'
+					className='btn btn-dark text-decoration-none text-dark text-white'>
+					GO TO EDIT PROFILE
+				</Link>
 			</div>
 		</div>
 	);
