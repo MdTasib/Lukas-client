@@ -7,7 +7,7 @@ import Loading from "../../shared/Loading";
 
 const MyReview = () => {
 	const [user, loading] = useAuthState(auth);
-	const { register, handleSubmit } = useForm();
+	const { register, handleSubmit, reset } = useForm();
 
 	const onSubmit = data => {
 		const reviewData = {
@@ -27,7 +27,7 @@ const MyReview = () => {
 		})
 			.then(res => res.json())
 			.then(data => {
-				console.log(data);
+				reset();
 				toast.success("Successfully Added Review");
 			});
 	};
@@ -47,8 +47,8 @@ const MyReview = () => {
 					<option value='1'>1</option>
 					<option value='2'>2</option>
 					<option value='3'>3</option>
-					<option value='3'>4</option>
-					<option value='3'>5</option>
+					<option value='4'>4</option>
+					<option value='5'>5</option>
 				</select>
 				<div class='mb-3'>
 					<label for='review' class='form-label'>
