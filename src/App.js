@@ -44,8 +44,9 @@ function App() {
 					}
 				/>
 				<Route path='/dashboard' element={<Dashboard />}>
-					<Route index element={<MyOrders />} />
+					<Route index element={<Profile />} />
 					<Route path='/dashboard/review' element={<MyReview />} />
+					<Route path='/dashboard/my-order' element={<MyOrders />} />
 					<Route path='/dashboard/profile' element={<Profile />} />
 					<Route path='/dashboard/all-orders' element={<AllOrders />} />
 					<Route path='/dashboard/add-product' element={<AddProduct />} />
