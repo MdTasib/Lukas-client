@@ -43,7 +43,7 @@ const MyReview = () => {
 			<form className='py-4' onSubmit={handleSubmit(onSubmit)}>
 				<select
 					{...register("rating")}
-					class='form-select form-select mb-3 w-50'
+					class='form-select form-select mb-3 w-75'
 					aria-label='form-select-lg example'>
 					<option value='1'>1</option>
 					<option value='2'>2</option>
@@ -57,9 +57,9 @@ const MyReview = () => {
 					</label>
 					<textarea
 						{...register("review", { required: true })}
-						class='form-control'
+						class='form-control w-75'
 						id='review'
-						rows='3'></textarea>
+						rows='4'></textarea>
 				</div>
 				<input className='btn btn-dark' type='submit' value='REVIEW' />
 			</form>
