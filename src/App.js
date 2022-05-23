@@ -6,7 +6,6 @@ import Login from "./pages/Login/Login";
 import Singin from "./pages/Login/Singin";
 import Footer from "./shared/Footer";
 import Navbar from "./shared/Navbar";
-import About from "./pages/About/About";
 import Blog from "./pages/Blog/Blog";
 import RequireAuth from "./pages/Login/RequireAuth";
 import Purchase from "./pages/Purchase/Purchase";
@@ -20,6 +19,7 @@ import AddProduct from "./pages/Dashboard/AddProduct";
 import ManageProduct from "./pages/Dashboard/ManageProduct";
 import MakeAdmin from "./pages/Dashboard/MakeAdmin";
 import EditProfile from "./pages/Dashboard/EditProfile";
+import MyProfile from "./pages/MyProfile/MyProfile";
 
 function App() {
 	return (
@@ -28,14 +28,7 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/home' element={<Home />} />
-				<Route
-					path='/about'
-					element={
-						<RequireAuth>
-							<About />
-						</RequireAuth>
-					}
-				/>
+				<Route path='/my-profile' element={<MyProfile />} />
 				<Route
 					path='/purchase/:id'
 					element={

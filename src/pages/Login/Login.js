@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import background from "../../assets/images/loginbg.jpg";
 import workGif from "../../assets/images/work.gif";
 import auth from "../../firebase.init";
@@ -31,8 +31,24 @@ const Login = () => {
 		return <Loading />;
 	}
 
+	if (error) {
+		Swal.fire({
+			position: "top-center",
+			icon: "warning",
+			title: `${error?.message}`,
+			showConfirmButton: false,
+			timer: 1500,
+		});
+	}
+
 	if (token) {
-		toast.success("User Login Successfully");
+		Swal.fire({
+			position: "top-center",
+			icon: "success",
+			title: "User Login Successfull",
+			showConfirmButton: false,
+			timer: 1500,
+		});
 		navigate(from, { replace: true });
 	}
 
@@ -44,7 +60,7 @@ const Login = () => {
 				<h2 className='pb-3'>Log In</h2>
 				<h6>
 					<Link className='text-white text-decoration-none' to='/'>
-						Home
+						Home{" "}
 					</Link>
 					/ Log In
 				</h6>

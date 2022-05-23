@@ -10,6 +10,7 @@ import background from "../../assets/images/loginbg.jpg";
 import workGif from "../../assets/images/work.gif";
 import toast from "react-hot-toast";
 import useToken from "../../hooks/useToken";
+import Swal from "sweetalert2";
 
 const Singin = () => {
 	const nameRef = useRef("");
@@ -33,7 +34,13 @@ const Singin = () => {
 		const confirmPassword = confirmPasswordRef.current.value;
 
 		if (password !== confirmPassword) {
-			return toast.error("Password Not Match");
+			return Swal.fire({
+				position: "top-center",
+				icon: "warning",
+				title: "Password Not Match",
+				showConfirmButton: false,
+				timer: 1500,
+			});
 		} else {
 			await createUserWithEmailAndPassword(email, password);
 			await updateProfile({ displayName: name });
@@ -45,7 +52,13 @@ const Singin = () => {
 	}
 
 	if (token) {
-		toast.success("User Created Successfully");
+		Swal.fire({
+			position: "top-center",
+			icon: "success",
+			title: "User Created Successfully",
+			showConfirmButton: false,
+			timer: 1500,
+		});
 		navigate(from, { replace: true });
 	}
 
@@ -57,7 +70,7 @@ const Singin = () => {
 				<h2 className='pb-3'>Sing Up</h2>
 				<h6>
 					<Link className='text-white text-decoration-none' to='/'>
-						Home
+						Home{" "}
 					</Link>
 					/ Sing In
 				</h6>
