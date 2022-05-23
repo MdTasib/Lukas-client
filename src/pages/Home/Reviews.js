@@ -12,6 +12,10 @@ const Reviews = () => {
 		return <Loading />;
 	}
 
+	const latest = [...reviews];
+
+	console.log(latest);
+
 	return (
 		<div className='container py-5'>
 			<div className='text-center'>

@@ -2,7 +2,7 @@ import React from "react";
 import ster from "../../assets/icon/ster.png";
 
 const Review = ({ review }) => {
-	const { rating, review: reviewText, userEmail, userName } = review;
+	const { rating, review: reviewText, userName } = review;
 
 	return (
 		<div className='col'>
@@ -11,16 +11,15 @@ const Review = ({ review }) => {
 					<div
 						className='bg-white mx-auto text-black rounded-circle d-flex justify-content-center align-items-center border'
 						style={{ width: "70px", height: "70px" }}>
-						<small>{userName.slice(0, 1)}</small>
+						<small className='fw-bold'>{userName.slice(0, 1)}</small>
 					</div>
-					<div>
-						{new Array(5).map(ster => (
-							<img src={ster} alt='hh' />
+					<div className='pt-2'>
+						{[...Array(Number(rating))].map((star, index) => (
+							<img key={index} src={ster} alt='' width={15} className='mx-1' />
 						))}
 					</div>
-					<h5 class='card-title'>{userName}</h5>
-					<h6 class='card-subtitle mb-2 text-muted'>{reviewText}</h6>
-					{/* <p class='card-text'>{reviewText}</p> */}
+					<h5 class='card-title py-2'>{userName}</h5>
+					<small class='card-subtitle mb-2 text-muted'>{reviewText}</small>
 				</div>
 			</div>
 		</div>
