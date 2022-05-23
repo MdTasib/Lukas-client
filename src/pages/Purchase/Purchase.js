@@ -14,7 +14,11 @@ const Purchase = () => {
 	const phoneRef = useRef("");
 	const productQuantityRef = useRef("");
 
-	const { data: product, isLoading } = useQuery(["product", id], () =>
+	const {
+		data: product,
+		isLoading,
+		refetch,
+	} = useQuery(["product", id], () =>
 		fetch(`http://localhost:5000/product/${id}`, {
 			headers: {
 				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -47,6 +51,7 @@ const Purchase = () => {
 			productQuantity,
 		};
 
+		// purchase product post on database
 		fetch("http://localhost:5000/product", {
 			method: "POST",
 			headers: {
@@ -57,10 +62,23 @@ const Purchase = () => {
 			.then(res => res.json())
 			.then(data => {
 				if (data.acknowledged) {
+					refetch();
 					toast.success("Successfully Purchase Product");
 					event.target.reset();
 				}
 			});
+
+		// update purchase product available quantity on database
+		const newQuantity = product.available - productQuantity;
+		fetch(`http://localhost:5000/product/${id}`, {
+			method: "PUT",
+			headers: {
+				"content-type": "application/json",
+			},
+			body: JSON.stringify({ newQuantity }),
+		})
+			.then(res => res.json())
+			.then(data => refetch());
 	};
 
 	return (
