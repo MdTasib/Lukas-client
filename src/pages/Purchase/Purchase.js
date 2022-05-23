@@ -36,6 +36,10 @@ const Purchase = () => {
 		const phone = phoneRef.current.value;
 		const productQuantity = productQuantityRef.current.value;
 
+		if (productQuantity < 50) {
+			return toast.error("Minimum Order Quantity - 50");
+		}
+
 		if (productQuantity > product.available) {
 			return toast.error("Product not stock");
 		}
@@ -144,6 +148,7 @@ const Purchase = () => {
 								Quantity - <b>( Minimum Order Quantity - 50)</b>
 							</label>
 							<select
+								defaultValue={product.orderQuantity[1]}
 								ref={productQuantityRef}
 								id='inputState'
 								class='form-select'>
@@ -158,7 +163,7 @@ const Purchase = () => {
 					</form>
 				</div>
 				<div className='col-md-6 text-center'>
-					<img src={product.img} alt='' />
+					<img src={product.img} alt='' className='w-100' />
 					<h5>{product.name}</h5>
 					<p className='m-0'>
 						<b>Per unit price</b> : {product.perPrice}
