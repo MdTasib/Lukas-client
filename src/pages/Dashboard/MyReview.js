@@ -15,6 +15,7 @@ const MyReview = () => {
 			rating: data.rating,
 			userName: user?.displayName,
 			userEmail: user?.email,
+			date: new Date().toDateString(),
 		};
 
 		fetch(`http://localhost:5000/review`, {

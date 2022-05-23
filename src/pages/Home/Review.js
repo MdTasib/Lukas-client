@@ -2,7 +2,7 @@ import React from "react";
 import ster from "../../assets/icon/ster.png";
 
 const Review = ({ review }) => {
-	const { rating, review: reviewText, userName } = review;
+	const { rating, review: reviewText, userName, date } = review;
 
 	return (
 		<div className='col'>
@@ -20,6 +20,7 @@ const Review = ({ review }) => {
 					</div>
 					<h5 class='card-title py-2'>{userName}</h5>
 					<small class='card-subtitle mb-2 text-muted'>{reviewText}</small>
+					<small class='fw-bold d-block'>{date?.split(" ").join(" - ")}</small>
 				</div>
 			</div>
 		</div>

@@ -12,9 +12,7 @@ const Reviews = () => {
 		return <Loading />;
 	}
 
-	const latest = [...reviews];
-
-	console.log(latest);
+	const latestReviews = [...reviews].splice(reviews.length - 3, reviews.length);
 
 	return (
 		<div className='container py-5'>
@@ -23,7 +21,7 @@ const Reviews = () => {
 				<h3 className='fw-bold pt-2'>What They're Saying</h3>
 			</div>
 			<div class='row row-cols-1 row-cols-sm-2 row-cols-md-3 pt-5 g-4'>
-				{reviews.map(review => (
+				{latestReviews.map(review => (
 					<Review key={review._id} review={review} />
 				))}
 			</div>
