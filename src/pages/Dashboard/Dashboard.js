@@ -45,6 +45,38 @@ const Dashboard = () => {
 										<small>MY PROFILE</small>
 									</CustomLink>
 								</li>
+								<li class='nav-item'>
+									<CustomLink
+										class='nav-link text-white'
+										aria-current='page'
+										to='/dashboard/all-orders'>
+										<small>ALL ORDERS</small>
+									</CustomLink>
+								</li>
+								<li class='nav-item'>
+									<CustomLink
+										class='nav-link text-white'
+										aria-current='page'
+										to='/dashboard/add-product'>
+										<small>ADD PRODUCT</small>
+									</CustomLink>
+								</li>
+								<li class='nav-item'>
+									<CustomLink
+										class='nav-link text-white'
+										aria-current='page'
+										to='/dashboard/manage-product'>
+										<small>MANAGE PRODUCT</small>
+									</CustomLink>
+								</li>
+								<li class='nav-item'>
+									<CustomLink
+										class='nav-link text-white'
+										aria-current='page'
+										to='/dashboard/make-admin'>
+										<small>NEW ADMIN</small>
+									</CustomLink>
+								</li>
 							</ul>
 						</div>
 					</div>

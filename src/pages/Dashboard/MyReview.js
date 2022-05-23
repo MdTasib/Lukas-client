@@ -39,7 +39,7 @@ const MyReview = () => {
 
 	return (
 		<div>
-			<h3>This is my review page</h3>
+			<h3>PLEASE, GIVE YOUR REVIEW</h3>
 			<form className='py-4' onSubmit={handleSubmit(onSubmit)}>
 				<select
 					{...register("rating")}

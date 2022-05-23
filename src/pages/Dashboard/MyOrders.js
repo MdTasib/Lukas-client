@@ -64,7 +64,7 @@ const MyOrders = () => {
 
 	return (
 		<div>
-			<h3>My orders</h3>
+			<h3>YOUR ORDERS</h3>
 			<table class='table table-striped'>
 				<thead>
 					<tr>

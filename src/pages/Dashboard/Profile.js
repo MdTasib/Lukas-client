@@ -76,98 +76,96 @@ const Profile = () => {
 	}
 
 	return (
-		<div className=''>
-			<div className='row p-5 rounded container justify-content-center'>
-				<div className='col-md-10'>
-					<h3 className='border-bottom border-3 border-dark d-inline-block pb-2'>
-						Edit Profile
-					</h3>
-					<small className='d-block'>Insert your profile information:</small>
+		<div className='row rounded container justify-content-start pb-5'>
+			<div className='col-md-10'>
+				<h3 className='border-bottom border-3 border-dark d-inline-block pb-2'>
+					Edit Profile
+				</h3>
+				<small className='d-block'>Insert your profile information:</small>
 
-					<form onSubmit={handleSubmit(onSubmit)}>
-						<div className='mt-3 text-end d-flex  flex-column align-items-center justify-content-center'>
-							<div
-								className='bg-light mx-auto text-black rounded-circle d-flex justify-content-center align-items-center border overflow-hidden'
-								style={{ width: "100px", height: "100px" }}>
-								{profile?.img ? (
-									<img src={profile?.img} className='w-100' alt='' />
-								) : (
-									<small className='fw-bold'>{user?.email.slice(0, 1)}</small>
-								)}
-							</div>
-
-							<div className='pt-4'>
-								<input
-									class='form-control form-control'
-									id='formFileLg'
-									type='file'
-									{...register("image", { required: { value: true } })}
-								/>
-							</div>
+				<form onSubmit={handleSubmit(onSubmit)}>
+					<div className='mt-3 text-end d-flex  flex-column align-items-center justify-content-center'>
+						<div
+							className='bg-light mx-auto text-black rounded-circle d-flex justify-content-center align-items-center border overflow-hidden'
+							style={{ width: "100px", height: "100px" }}>
+							{profile?.img ? (
+								<img src={profile?.img} className='w-100' alt='' />
+							) : (
+								<small className='fw-bold'>{user?.email.slice(0, 1)}</small>
+							)}
 						</div>
 
-						<div className='input-group my-3'>
+						<div className='pt-4'>
 							<input
-								type='text'
-								className='form-control'
-								value={user?.displayName}
-								readOnly
+								class='form-control form-control'
+								id='formFileLg'
+								type='file'
+								{...register("image", { required: { value: true } })}
 							/>
 						</div>
-						<div className='input-group my-3'>
-							<span className='input-group-text'>📧</span>
-							<input
-								type='email'
-								className='form-control'
-								value={user?.email}
-								readOnly
-							/>
-						</div>
+					</div>
 
-						<div class='pb-2'>
-							<label for='inputAddress' class='form-label'>
-								Address
+					<div className='input-group my-3'>
+						<input
+							type='text'
+							className='form-control'
+							value={user?.displayName}
+							readOnly
+						/>
+					</div>
+					<div className='input-group my-3'>
+						<span className='input-group-text'>📧</span>
+						<input
+							type='email'
+							className='form-control'
+							value={user?.email}
+							readOnly
+						/>
+					</div>
+
+					<div class='pb-2'>
+						<label for='inputAddress' class='form-label'>
+							Address
+						</label>
+						<input
+							{...register("address", { required: { value: true } })}
+							type='text'
+							class='form-control'
+							id='inputAddress'
+							placeholder={profile?.address}
+						/>
+					</div>
+					<div className='row'>
+						<div class='col-md-6'>
+							<label for='phone' class='form-label'>
+								Phone
 							</label>
 							<input
-								{...register("address", { required: { value: true } })}
-								type='text'
+								{...register("phone", { required: { value: true } })}
+								type='phone'
 								class='form-control'
-								id='inputAddress'
-								placeholder={profile?.address}
+								id='phone'
+								placeholder={profile?.phone}
 							/>
 						</div>
-						<div className='row'>
-							<div class='col-md-6'>
-								<label for='phone' class='form-label'>
-									Phone
-								</label>
-								<input
-									{...register("phone", { required: { value: true } })}
-									type='phone'
-									class='form-control'
-									id='phone'
-									placeholder={profile?.phone}
-								/>
-							</div>
-							<div class='col-md-6'>
-								<label for='inputCity' class='form-label'>
-									City
-								</label>
-								<input
-									{...register("city", { required: { value: true } })}
-									type='text'
-									class='form-control'
-									id='inputCity'
-									placeholder={profile?.city}
-								/>
-							</div>
+						<div class='col-md-6'>
+							<label for='inputCity' class='form-label'>
+								City
+							</label>
+							<input
+								{...register("city", { required: { value: true } })}
+								type='text'
+								class='form-control'
+								id='inputCity'
+								placeholder={profile?.city}
+							/>
 						</div>
+					</div>
 
-						<button type='submit' className='btn btn-dark mt-2 w-100'>
-							SAVE
-						</button>
-					</form>
-				</div>
+					<button type='submit' className='btn btn-dark mt-2 w-100'>
+						SAVE
+					</button>
+				</form>
 			</div>
 		</div>
 	);

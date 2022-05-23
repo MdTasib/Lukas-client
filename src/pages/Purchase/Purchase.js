@@ -141,7 +141,7 @@ const Purchase = () => {
 						</div>
 						<div>
 							<label for='inputState' class='form-label'>
-								Product Quantity
+								Quantity - <b>( Minimum Order Quantity - 50)</b>
 							</label>
 							<select
 								ref={productQuantityRef}
