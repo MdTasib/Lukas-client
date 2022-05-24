@@ -1,17 +1,21 @@
 import React from "react";
 import Banner from "./Banner";
 import BusinessInfo from "./BusinessInfo";
+import CarService from "./CarService";
+import Discount from "./Discount";
 import Items from "./Items";
 import Reviews from "./Reviews";
 
 const Home = () => {
 	return (
-		<div>
+		<main>
 			<Banner />
 			<Items />
+			<CarService />
 			<BusinessInfo />
 			<Reviews />
-		</div>
+			<Discount />
+		</main>
 	);
 };
 

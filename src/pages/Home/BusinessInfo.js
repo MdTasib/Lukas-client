@@ -19,7 +19,7 @@ const BusinessInfo = () => {
 	};
 
 	return (
-		<div className='py-5' style={bg}>
+		<section className='py-5' style={bg}>
 			<div className='container'>
 				<h3 className='text-center pb-4 text-white fw-bold'>Our Achievement</h3>
 				<div className='row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4'>
@@ -32,7 +32,7 @@ const BusinessInfo = () => {
 					))}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

@@ -13,7 +13,7 @@ const Items = () => {
 	}
 
 	return (
-		<div className='container py-5'>
+		<section className='container py-5'>
 			<div className='w-75 mx-auto text-center'>
 				<h3>BEST PRODUCTS</h3>
 				<small>
@@ -26,7 +26,7 @@ const Items = () => {
 					<Item key={product._id} product={product} />
 				))}
 			</div>
-		</div>
+		</section>
 	);
 };
 
