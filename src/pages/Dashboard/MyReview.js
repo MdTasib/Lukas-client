@@ -38,7 +38,7 @@ const MyReview = () => {
 	}
 
 	return (
-		<div>
+		<>
 			<h3>PLEASE, GIVE YOUR REVIEW</h3>
 			<form className='py-4' onSubmit={handleSubmit(onSubmit)}>
 				<select
@@ -63,7 +63,7 @@ const MyReview = () => {
 				</div>
 				<input className='btn btn-dark' type='submit' value='REVIEW' />
 			</form>
-		</div>
+		</>
 	);
 };
 

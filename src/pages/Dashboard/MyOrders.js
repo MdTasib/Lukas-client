@@ -88,7 +88,9 @@ const MyOrders = () => {
 									className='btn btn-sm btn-outline-danger'>
 									Cancel
 								</button>
-								<button className='btn btn-sm btn-outline-success ms-2'>
+								<button
+									onClick={() => navigate(`/dashboard/payment/${order._id}`)}
+									className='btn btn-sm btn-outline-success ms-2'>
 									Pay
 								</button>
 							</td>

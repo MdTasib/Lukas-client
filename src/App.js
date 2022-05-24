@@ -21,6 +21,7 @@ import MakeAdmin from "./pages/Dashboard/MakeAdmin";
 import EditProfile from "./pages/Dashboard/EditProfile";
 import MyProfile from "./pages/MyProfile/MyProfile";
 import RequireAdmin from "./pages/Dashboard/RequireAdmin";
+import Payment from "./pages/Payment/Payment";
 
 function App() {
 	return (
@@ -44,6 +45,7 @@ function App() {
 					<Route path='/dashboard/my-order' element={<MyOrders />} />
 					<Route path='/dashboard/profile' element={<Profile />} />
 					<Route path='/dashboard/edit-profile' element={<EditProfile />} />
+					<Route path='/dashboard/payment/:id' element={<Payment />} />
 					<Route
 						path='/dashboard/all-orders'
 						element={

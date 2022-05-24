@@ -3,7 +3,7 @@ import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import background from "../../assets/images/loginbg.jpg";
-import workGif from "../../assets/images/work.gif";
+import workGif from "../../assets/images/login.gif";
 import auth from "../../firebase.init";
 import useToken from "../../hooks/useToken";
 import Loading from "../../shared/Loading";
@@ -65,7 +65,7 @@ const Login = () => {
 					/ Log In
 				</h6>
 			</div>
-			<div className='row p-5 rounded container mx-auto'>
+			<div className='row p-5 rounded container mx-auto align-items-center'>
 				<div className='col-md-6'>
 					<h3 className='border-bottom border-3 border-dark d-inline-block pb-2'>
 						Log In
@@ -116,7 +116,7 @@ const Login = () => {
 					</form>
 				</div>
 				<div className='col-md-6 mt-3'>
-					<img src={workGif} alt='' />
+					<img src={workGif} alt='' className='w-100' />
 				</div>
 			</div>
 		</div>

@@ -7,8 +7,7 @@ import {
 import auth from "../../firebase.init";
 import Loading from "../../shared/Loading";
 import background from "../../assets/images/loginbg.jpg";
-import workGif from "../../assets/images/work.gif";
-import toast from "react-hot-toast";
+import workGif from "../../assets/images/login.gif";
 import useToken from "../../hooks/useToken";
 import Swal from "sweetalert2";
 
@@ -75,7 +74,7 @@ const Singin = () => {
 					/ Sing In
 				</h6>
 			</div>
-			<div className='row p-5 rounded container mx-auto'>
+			<div className='row p-5 rounded container mx-auto align-items-center'>
 				<div className='col-md-6'>
 					<h3 className='border-bottom border-3 border-dark d-inline-block pb-2'>
 						Sing In
@@ -143,7 +142,7 @@ const Singin = () => {
 					</form>
 				</div>
 				<div className='col-md-6 mt-3 text-end'>
-					<img src={workGif} alt='' />
+					<img src={workGif} alt='' className='w-100' />
 				</div>
 			</div>
 		</div>
