@@ -7,6 +7,7 @@ import workGif from "../../assets/images/login.gif";
 import auth from "../../firebase.init";
 import useToken from "../../hooks/useToken";
 import Loading from "../../shared/Loading";
+import GoogleLogin from "./GoogleLogin";
 
 const Login = () => {
 	const emailRef = useRef("");
@@ -114,6 +115,9 @@ const Login = () => {
 							Log in
 						</button>
 					</form>
+					<div className='mt-3'>
+						<GoogleLogin />
+					</div>
 				</div>
 				<div className='col-md-6 mt-3'>
 					<img src={workGif} alt='' className='w-100' />

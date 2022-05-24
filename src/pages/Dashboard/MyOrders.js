@@ -31,8 +31,6 @@ const MyOrders = () => {
 		})
 	);
 
-	console.log(purcahsesOrder);
-
 	const handleDelete = id => {
 		Swal.fire({
 			title: "Are you sure?",

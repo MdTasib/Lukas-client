@@ -61,6 +61,14 @@ const OrderRow = ({ order, index, refetch }) => {
 		});
 	};
 
+	const handlePending = () => {
+		Swal.fire(
+			"Order is pending",
+			"Shipped this order? Click Shipped button",
+			"question"
+		);
+	};
+
 	return (
 		<tr key={order._id}>
 			<th scope='row'>{index + 1}</th>
@@ -68,7 +76,9 @@ const OrderRow = ({ order, index, refetch }) => {
 			<td>{order.name}</td>
 			<td>
 				{order.status === "pending" && (
-					<button className='btn btn-sm btn-outline-info fw-bold me-2'>
+					<button
+						onClick={handlePending}
+						className='btn btn-sm btn-outline-info fw-bold me-2'>
 						PENDING...
 					</button>
 				)}

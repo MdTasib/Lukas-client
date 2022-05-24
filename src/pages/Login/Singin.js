@@ -10,6 +10,7 @@ import background from "../../assets/images/loginbg.jpg";
 import workGif from "../../assets/images/login.gif";
 import useToken from "../../hooks/useToken";
 import Swal from "sweetalert2";
+import GoogleLogin from "./GoogleLogin";
 
 const Singin = () => {
 	const nameRef = useRef("");
@@ -140,6 +141,9 @@ const Singin = () => {
 							Sign in
 						</button>
 					</form>
+					<div className='mt-3'>
+						<GoogleLogin />
+					</div>
 				</div>
 				<div className='col-md-6 mt-3 text-end'>
 					<img src={workGif} alt='' className='w-100' />
