@@ -53,7 +53,7 @@ const MyOrders = () => {
 					.then(data => {
 						refetch();
 					});
-				Swal.fire("Deleted!", "Doctor has been deleted.", "success");
+				Swal.fire("Deleted!", "Product has been deleted.", "success");
 			}
 		});
 	};

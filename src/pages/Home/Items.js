@@ -4,14 +4,6 @@ import Loading from "../../shared/Loading";
 import Item from "./Item";
 
 const Items = () => {
-	// const [products, setProducts] = useState([]);
-
-	// useEffect(() => {
-	// 	fetch("http://localhost:5000/product")
-	// 		.then(res => res.json())
-	// 		.then(data => setProducts(data));
-	// }, []);
-
 	const { data: products, isLoading } = useQuery("products", () =>
 		fetch("http://localhost:5000/product").then(res => res.json())
 	);

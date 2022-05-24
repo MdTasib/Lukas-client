@@ -6,6 +6,7 @@ import background from "../../assets/images/loginbg.jpg";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const Purchase = () => {
 	const { id } = useParams();
@@ -37,11 +38,23 @@ const Purchase = () => {
 		const productQuantity = productQuantityRef.current.value;
 
 		if (productQuantity < 50) {
-			return toast.error("Minimum Order Quantity - 50");
+			return Swal.fire({
+				position: "top-center",
+				icon: "warning",
+				title: "Minimum Order Quantity - 50",
+				showConfirmButton: false,
+				timer: 1500,
+			});
 		}
 
 		if (productQuantity > product.available) {
-			return toast.error("Product not stock");
+			return Swal.fire({
+				position: "top-center",
+				icon: "warning",
+				title: "There are not so many products in stock",
+				showConfirmButton: false,
+				timer: 1500,
+			});
 		}
 
 		const purchaseProduct = {
@@ -67,7 +80,14 @@ const Purchase = () => {
 			.then(data => {
 				if (data.acknowledged) {
 					refetch();
-					toast.success("Successfully Purchase Product");
+					Swal.fire({
+						position: "top-center",
+						icon: "success",
+						title:
+							"Successfully purchase your product. Please go to the dashboard and payment complete.",
+						showConfirmButton: false,
+						timer: 2000,
+					});
 					event.target.reset();
 				}
 			});

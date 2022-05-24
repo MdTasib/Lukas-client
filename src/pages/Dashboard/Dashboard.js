@@ -10,8 +10,6 @@ const Dashboard = () => {
 	const [user, loading] = useAuthState(auth);
 	const [admin] = useAdmin(user);
 
-	console.log(admin);
-
 	if (loading) {
 		return <Loading />;
 	}

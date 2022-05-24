@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
 	const { register, handleSubmit, reset } = useForm();
@@ -44,7 +44,13 @@ const AddProduct = () => {
 						.then(res => res.json())
 						.then(data => {
 							reset();
-							toast.success("Successfully upload a new product");
+							Swal.fire({
+								position: "top-center",
+								icon: "success",
+								title: "Successfully upload a new product",
+								showConfirmButton: false,
+								timer: 1500,
+							});
 						});
 				}
 			});
@@ -63,6 +69,19 @@ const AddProduct = () => {
 						type='text'
 						class='form-control'
 						id='name'
+					/>
+				</div>
+
+				<div className='pt-1 pb-3'>
+					<label for='name' class='form-label fw-bold'>
+						Product Image
+					</label>
+
+					<input
+						class='form-control form-control'
+						id='formFileLg'
+						type='file'
+						{...register("image", { required: { value: true } })}
 					/>
 				</div>
 
@@ -108,15 +127,6 @@ const AddProduct = () => {
 							rows='5'
 						/>
 					</div>
-				</div>
-
-				<div className='pt-4'>
-					<input
-						class='form-control form-control'
-						id='formFileLg'
-						type='file'
-						{...register("image", { required: { value: true } })}
-					/>
 				</div>
 
 				<button type='submit' className='btn btn-dark mt-2 w-100'>

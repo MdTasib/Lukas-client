@@ -1,8 +1,7 @@
 import React from "react";
-import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
-const User = ({ user, index, refetch }) => {
+const UserRow = ({ user, index, refetch }) => {
 	const { email, role } = user;
 
 	const handleMakeAdmin = () => {
@@ -68,4 +67,4 @@ const User = ({ user, index, refetch }) => {
 	);
 };
 
-export default User;
+export default UserRow;
