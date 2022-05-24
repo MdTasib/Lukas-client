@@ -31,11 +31,17 @@ const AllOrders = () => {
 						<th scope='col'>Customer</th>
 						<th scope='col'>Product</th>
 						<th scope='col'>Stutas</th>
+						<th scope='col'>Delete</th>
 					</tr>
 				</thead>
 				<tbody>
 					{allOrders?.map((order, index) => (
-						<OrderRow key={order._id} order={order} index={index} />
+						<OrderRow
+							key={order._id}
+							order={order}
+							index={index}
+							refetch={refetch}
+						/>
 					))}
 				</tbody>
 			</table>
