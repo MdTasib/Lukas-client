@@ -2,7 +2,7 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo-light.png";
 import auth from "../firebase.init";
 import Loading from "./Loading";
 
@@ -13,7 +13,7 @@ const Navbar = () => {
 		return <Loading />;
 	}
 	return (
-		<nav className='navbar navbar-expand-lg'>
+		<nav className='navbar navbar-dark bg-dark navbar-expand-lg'>
 			<div className='container'>
 				<Link className='navbar-brand' to='/'>
 					<img src={logo} alt='' />
@@ -66,7 +66,7 @@ const Navbar = () => {
 										signOut(auth);
 										localStorage.removeItem("accessToken");
 									}}>
-									<small className='nav-link btn btn-dark text-white'>
+									<small className='nav-link btn btn-light text-dark'>
 										Log Out
 									</small>
 								</li>
