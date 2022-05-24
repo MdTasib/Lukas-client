@@ -30,7 +30,7 @@ const OrderRow = ({ order, index, refetch }) => {
 	};
 
 	const handleShipped = id => {
-		console.log(id);
+		console.log(order);
 	};
 
 	return (
