@@ -1,8 +1,11 @@
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import payGif from "../../assets/images/pay.gif";
 import Loading from "../../shared/Loading";
+import CheckoutForm from "./CheckoutForm";
 
 const Payment = () => {
 	const { id } = useParams();
@@ -21,8 +24,12 @@ const Payment = () => {
 		return <Loading />;
 	}
 
-	const { userName, userEmail, name, perPrice, productQuantity } = purcahses;
+	const { userName, name, perPrice, productQuantity } = purcahses;
 	const payPrice = perPrice * Number(productQuantity);
+
+	const stripePromise = loadStripe(
+		"pk_test_51IeAZaFLS713LSSjm5z39rde0Dw558BCbCNNKnHZznQzN9khB8LRy5SdjLKzazWus6sKcNwr70ajIgGmWBloqgCy00pmDjThkv"
+	);
 
 	return (
 		<>
@@ -31,7 +38,7 @@ const Payment = () => {
 			</h3>
 			<div className='row align-items-center'>
 				<div className='col-md-6'>
-					<div class='card border-0 shadow'>
+					<div class='card border-0 shadow mt-2'>
 						<div class='card-body'>
 							<h5 class='card-title'>
 								Hey! <b>{userName}</b>
@@ -48,6 +55,14 @@ const Payment = () => {
 							<p class='card-text'>
 								Total pay: <b>$ {payPrice}</b>
 							</p>
+						</div>
+					</div>
+
+					<div class='card border-0 shadow my-5'>
+						<div class='card-body'>
+							<Elements stripe={stripePromise}>
+								<CheckoutForm product={purcahses} payPrice={payPrice} />
+							</Elements>
 						</div>
 					</div>
 				</div>

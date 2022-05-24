@@ -31,6 +31,8 @@ const MyOrders = () => {
 		})
 	);
 
+	console.log(purcahsesOrder);
+
 	const handleDelete = id => {
 		Swal.fire({
 			title: "Are you sure?",
@@ -83,16 +85,29 @@ const MyOrders = () => {
 							<td>{order.name}</td>
 							<td>{order.productQuantity}</td>
 							<td>
-								<button
-									onClick={() => handleDelete(order._id)}
-									className='btn btn-sm btn-outline-danger'>
-									Cancel
-								</button>
-								<button
-									onClick={() => navigate(`/dashboard/payment/${order._id}`)}
-									className='btn btn-sm btn-outline-success ms-2'>
-									Pay
-								</button>
+								{!order.paid ? (
+									<>
+										<button
+											onClick={() => handleDelete(order._id)}
+											className='btn btn-sm btn-outline-danger'>
+											Cancel
+										</button>
+										<button
+											onClick={() =>
+												navigate(`/dashboard/payment/${order._id}`)
+											}
+											className='btn btn-sm btn-outline-success ms-2'>
+											Pay
+										</button>
+									</>
+								) : (
+									<>
+										<p className='m-0 fw-bold text-success'>PAID</p>
+										<small style={{ fontSize: "12px" }}>
+											<b>XID</b> : {order.transactionId}
+										</small>
+									</>
+								)}
 							</td>
 						</tr>
 					))}
