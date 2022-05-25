@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 import Loading from "../../shared/Loading";
 import Item from "./Item";
 
 const Items = () => {
+	const navigate = useNavigate();
+
 	const { data: products, isLoading } = useQuery("products", () =>
 		fetch("http://localhost:5000/product").then(res => res.json())
 	);
@@ -22,9 +25,14 @@ const Items = () => {
 				</small>
 			</div>
 			<div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center pt-5'>
-				{products.map(product => (
+				{products.slice(0, 8).map(product => (
 					<Item key={product._id} product={product} />
 				))}
+			</div>
+			<div className='text-center pt-5'>
+				<button onClick={() => navigate("/all-items")} className='btn btn-dark'>
+					SEE ALL PRODUCTS
+				</button>
 			</div>
 		</section>
 	);

@@ -7,7 +7,7 @@ const Item = ({ product }) => {
 
 	return (
 		<div className='col'>
-			<div className='bg-light rounded pb-3'>
+			<div className='bg-light rounded pb-3 h-100'>
 				<img src={img} alt='' className='w-100' />
 				<div className='text-center px-3'>
 					<h6 className='fw-bold'>{name}</h6>
