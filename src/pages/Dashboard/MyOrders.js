@@ -75,6 +75,7 @@ const MyOrders = () => {
 						<th scope='col'>Name</th>
 						<th scope='col'>Product</th>
 						<th scope='col'>Quantity</th>
+						<th scope='col'>Status</th>
 						<th scope='col'>Order</th>
 					</tr>
 				</thead>
@@ -86,24 +87,38 @@ const MyOrders = () => {
 							<td>{order.name}</td>
 							<td>{order.productQuantity}</td>
 							<td>
+								{order.status ? (
+									<small
+										className={`text-uppercase fw-bold ${
+											order.status === "pending" ? "text-info" : "text-success"
+										}`}>
+										{order.status}
+									</small>
+								) : (
+									<small className='text-uppercase fw-bold text-danger'>
+										Unpaid
+									</small>
+								)}
+							</td>
+							<td>
 								{!order.paid ? (
 									<>
+										<button
+											onClick={() =>
+												navigate(`/dashboard/payment/${order._id}`)
+											}
+											className='btn btn-sm btn-outline-success me-2'>
+											Pay
+										</button>
 										<button
 											onClick={() => handleDelete(order._id)}
 											className='btn btn-sm btn-outline-danger'>
 											Cancel
 										</button>
-										<button
-											onClick={() =>
-												navigate(`/dashboard/payment/${order._id}`)
-											}
-											className='btn btn-sm btn-outline-success ms-2'>
-											Pay
-										</button>
 									</>
 								) : (
 									<>
-										<p className='m-0 fw-bold text-success'>PAID</p>
+										<p className='m-0 fw-bold text-secondary'>PAID</p>
 										<small style={{ fontSize: "12px" }}>
 											<b>XID</b> : {order.transactionId}
 										</small>

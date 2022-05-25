@@ -16,7 +16,7 @@ const Dashboard = () => {
 
 	return (
 		<div className='row container-fluid'>
-			<div className='col-md-3 bg-dark'>
+			<div className='col-md-2 bg-dark'>
 				<nav className='navbar navbar-expand-lg'>
 					<div className='container flex-column'>
 						<p className='navbar-brand text-white'>Dashboard</p>
@@ -101,7 +101,7 @@ const Dashboard = () => {
 					</div>
 				</nav>
 			</div>
-			<div className='col-md-9 ps-5 pt-4'>
+			<div className='col-md-10 ps-5 pt-4'>
 				<Outlet />
 			</div>
 		</div>

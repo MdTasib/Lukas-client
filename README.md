@@ -1,5 +1,1 @@
-https://preview.themeforest.net/item/lukas-car-parts-store-ecommerce-html-template/full_screen_preview/24049131?_ga=2.186338089.1203328819.1653126289-1541293464.1594013502
-
-https://themebeyond.com/html/carnation/carnation/index-3.html
-
-https://www.carparts.com/thermostat/replacement/repn318003
+ami protomei akta kota bolte sai. user jodi google dia login kore. tahole dashboard a kisota problem hoi maje maje. net speed kom hoile. tkn ai problem ta dei. tai ami bolbo google dia login na kore. user new account create korar jonno.

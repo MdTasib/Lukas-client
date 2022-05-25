@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 import auth from "../../firebase.init";
 import Loading from "../../shared/Loading";
 
@@ -29,7 +29,13 @@ const MyReview = () => {
 			.then(res => res.json())
 			.then(data => {
 				reset();
-				toast.success("Successfully Added Review");
+				Swal.fire({
+					position: "top-center",
+					icon: "success",
+					title: "Successfully Added Review",
+					showConfirmButton: false,
+					timer: 1000,
+				});
 			});
 	};
 
