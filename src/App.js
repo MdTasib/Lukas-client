@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
@@ -35,6 +35,9 @@ function App() {
 				<Route path='/all-items' element={<AllItems />} />
 				<Route path='/all-reviews' element={<AllReviews />} />
 				<Route path='/my-profile' element={<MyProfile />} />
+				<Route path='/blog' element={<Blog />} />
+				<Route path='/login' element={<Login />} />
+				<Route path='/singup' element={<Singin />} />
 				<Route
 					path='/purchase/:id'
 					element={
@@ -83,9 +86,6 @@ function App() {
 						}
 					/>
 				</Route>
-				<Route path='/blog' element={<Blog />} />
-				<Route path='/login' element={<Login />} />
-				<Route path='/singup' element={<Singin />} />
 				<Route path='*' element={<NotFound />} />
 			</Routes>
 			<Footer />
