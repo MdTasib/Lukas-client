@@ -8,7 +8,9 @@ const Reviews = () => {
 	const navigate = useNavigate();
 
 	const { data: reviews, isLoading } = useQuery("reviews", () =>
-		fetch("http://localhost:5000/review").then(res => res.json())
+		fetch("https://damp-scrubland-03827.herokuapp.com/review").then(res =>
+			res.json()
+		)
 	);
 
 	if (isLoading) {
@@ -23,7 +25,7 @@ const Reviews = () => {
 				<small className='text-secondary'>LATEST TESTIMINIALS</small>
 				<h3 className='fw-bold pt-2'>What They're Saying</h3>
 			</div>
-			<div class='row row-cols-1 row-cols-sm-2 row-cols-md-3 pt-5 g-4  justify-content-center'>
+			<div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 pt-5 g-4  justify-content-center'>
 				{latestReviews.map(review => (
 					<Review key={review._id} review={review} />
 				))}

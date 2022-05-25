@@ -9,7 +9,7 @@ const AllOrders = () => {
 		isLoading,
 		refetch,
 	} = useQuery("allOrders", () =>
-		fetch("http://localhost:5000/purchases", {
+		fetch("https://damp-scrubland-03827.herokuapp.com/purchases", {
 			method: "GET",
 			headers: {
 				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -24,7 +24,7 @@ const AllOrders = () => {
 	return (
 		<div>
 			<h3>ALL ORDERS</h3>
-			<table class='table table-striped'>
+			<table className='table table-striped'>
 				<thead>
 					<tr>
 						<th scope='col'>SR</th>

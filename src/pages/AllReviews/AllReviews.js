@@ -7,7 +7,9 @@ import Review from "../Home/Review";
 
 const AllReviews = () => {
 	const { data: reviews, isLoading } = useQuery("reviews", () =>
-		fetch("http://localhost:5000/review").then(res => res.json())
+		fetch("https://damp-scrubland-03827.herokuapp.com/review").then(res =>
+			res.json()
+		)
 	);
 
 	if (isLoading) {
@@ -28,7 +30,7 @@ const AllReviews = () => {
 				</h6>
 			</div>
 			<div className='container py-5'>
-				<div class='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4  justify-content-center'>
+				<div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4  justify-content-center'>
 					{reviews.map(review => (
 						<Review key={review._id} review={review} />
 					))}

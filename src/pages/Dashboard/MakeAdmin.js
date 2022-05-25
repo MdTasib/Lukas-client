@@ -9,7 +9,7 @@ const MakeAdmin = () => {
 		isLoading,
 		refetch,
 	} = useQuery("users", () =>
-		fetch("http://localhost:5000/user", {
+		fetch("https://damp-scrubland-03827.herokuapp.com/user", {
 			headers: {
 				"content-type": "application/json",
 				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -23,7 +23,7 @@ const MakeAdmin = () => {
 	return (
 		<div>
 			<h3>ADD A NEW ADMIN</h3>
-			<table class='table table-striped'>
+			<table className='table table-striped'>
 				<thead>
 					<tr>
 						<th scope='col'>SR</th>

@@ -33,7 +33,7 @@ const AddProduct = () => {
 				};
 
 				if (result.success) {
-					fetch(`http://localhost:5000/uploadProduct`, {
+					fetch(`https://damp-scrubland-03827.herokuapp.com/uploadProduct`, {
 						method: "POST",
 						headers: {
 							"content-type": "application/json",
@@ -60,25 +60,25 @@ const AddProduct = () => {
 		<div className='pb-5'>
 			<h3>ADD A NEW PRODUCT</h3>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<div class='pb-2'>
-					<label for='name' class='form-label fw-bold'>
+				<div className='pb-2'>
+					<label htmlFor='name' className='form-label fw-bold'>
 						Product Name
 					</label>
 					<input
 						{...register("name", { required: { value: true } })}
 						type='text'
-						class='form-control'
+						className='form-control'
 						id='name'
 					/>
 				</div>
 
 				<div className='pt-1 pb-3'>
-					<label for='name' class='form-label fw-bold'>
+					<label htmlFor='name' className='form-label fw-bold'>
 						Product Image
 					</label>
 
 					<input
-						class='form-control form-control'
+						className='form-control form-control'
 						id='formFileLg'
 						type='file'
 						{...register("image", { required: { value: true } })}
@@ -87,27 +87,27 @@ const AddProduct = () => {
 
 				<div className='row'>
 					<div className='col-md-6'>
-						<div class='pb-2'>
-							<label for='quantity' class='form-label fw-bold'>
+						<div className='pb-2'>
+							<label htmlFor='quantity' className='form-label fw-bold'>
 								AVAILABLE QUANTITY
 							</label>
 							<input
 								{...register("quantity", { required: { value: true } })}
 								type='number'
-								class='form-control'
+								className='form-control'
 								id='quantity'
 							/>
 						</div>
 					</div>
 					<div className='col-md-6'>
-						<div class='pb-2'>
-							<label for='price' class='form-label fw-bold'>
+						<div className='pb-2'>
+							<label htmlFor='price' className='form-label fw-bold'>
 								PRICE
 							</label>
 							<input
 								{...register("price", { required: { value: true } })}
 								type='number'
-								class='form-control'
+								className='form-control'
 								id='price'
 							/>
 						</div>
@@ -115,14 +115,14 @@ const AddProduct = () => {
 				</div>
 
 				<div className='row'>
-					<div class='col-md-12'>
-						<label for='description' class='form-label'>
+					<div className='col-md-12'>
+						<label htmlFor='description' className='form-label'>
 							<b>PRODUCT DESCRIPTION</b>
 						</label>
 						<textarea
 							{...register("description", { required: { value: true } })}
 							type='text'
-							class='form-control'
+							className='form-control'
 							id='description'
 							rows='5'
 						/>

@@ -55,13 +55,13 @@ const MyProfile = () => {
 					<div className='text-center'>
 						<h3>MY PROJECTS</h3>
 					</div>
-					<div class='row row-cols-1 row-cols-md-3 g-4 pt-5'>
-						<div class='col'>
-							<div class='card h-100'>
-								<img src={project1} class='card-img-top' alt='...' />
-								<div class='card-body'>
-									<h5 class='card-title'>Filmmakers</h5>
-									<p class='card-text'>
+					<div className='row row-cols-1 row-cols-md-3 g-4 pt-5'>
+						<div className='col'>
+							<div className='card h-100'>
+								<img src={project1} className='card-img-top' alt='...' />
+								<div className='card-body'>
+									<h5 className='card-title'>Filmmakers</h5>
+									<p className='card-text'>
 										Hope you guys this is an amazing project in react js. Lets
 										Create a Movies and TV Series App in React JS and Material
 										UI with full responsive fuctionality.
@@ -83,12 +83,12 @@ const MyProfile = () => {
 								</div>
 							</div>
 						</div>
-						<div class='col'>
-							<div class='card h-100'>
-								<img src={project2} class='card-img-top' alt='...' />
-								<div class='card-body'>
-									<h5 class='card-title'>Card title</h5>
-									<p class='card-text'>
+						<div className='col'>
+							<div className='card h-100'>
+								<img src={project2} className='card-img-top' alt='...' />
+								<div className='card-body'>
+									<h5 className='card-title'>Card title</h5>
+									<p className='card-text'>
 										Hope you guys this is an amazing project in react js. The
 										project is going to fetch the live data from the API using
 										Async/Await syntax. In this video, we also use React Hooks!
@@ -110,12 +110,12 @@ const MyProfile = () => {
 								</div>
 							</div>
 						</div>
-						<div class='col'>
-							<div class='card h-100'>
-								<img src={project3} class='card-img-top' alt='...' />
-								<div class='card-body'>
-									<h5 class='card-title'>Card title</h5>
-									<p class='card-text'>
+						<div className='col'>
+							<div className='card h-100'>
+								<img src={project3} className='card-img-top' alt='...' />
+								<div className='card-body'>
+									<h5 className='card-title'>Card title</h5>
+									<p className='card-text'>
 										Hope you guys this is an amazing project in react js. Build
 										Responsive Website in React JS with Styled-Components and
 										GSAP for awesome scroll Animations

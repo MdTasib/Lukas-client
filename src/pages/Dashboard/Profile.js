@@ -9,12 +9,15 @@ const Profile = () => {
 	const [userProfile, setUserProfile] = useState({});
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/userProfile/${user?.email}`, {
-			headers: {
-				"content-type": "application/json",
-				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-			},
-		})
+		fetch(
+			`https://damp-scrubland-03827.herokuapp.com/userProfile/${user?.email}`,
+			{
+				headers: {
+					"content-type": "application/json",
+					authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+				},
+			}
+		)
 			.then(res => res.json())
 			.then(data => setUserProfile(data));
 	}, [user?.email]);
@@ -61,38 +64,38 @@ const Profile = () => {
 						/>
 					</div>
 
-					<div class='pb-2'>
-						<label for='inputAddress' class='form-label'>
+					<div className='pb-2'>
+						<label htmlFor='inputAddress' className='form-label'>
 							Address
 						</label>
 						<input
 							type='text'
-							class='form-control'
+							className='form-control'
 							id='inputAddress'
 							placeholder={userProfile?.address}
 							readOnly
 						/>
 					</div>
 					<div className='row'>
-						<div class='col-md-6'>
-							<label for='phone' class='form-label'>
+						<div className='col-md-6'>
+							<label htmlFor='phone' className='form-label'>
 								Phone
 							</label>
 							<input
 								type='phone'
-								class='form-control'
+								className='form-control'
 								id='phone'
 								placeholder={userProfile?.phone}
 								readOnly
 							/>
 						</div>
-						<div class='col-md-6'>
-							<label for='inputCity' class='form-label'>
+						<div className='col-md-6'>
+							<label htmlFor='inputCity' className='form-label'>
 								City
 							</label>
 							<input
 								type='text'
-								class='form-control'
+								className='form-control'
 								id='inputCity'
 								placeholder={userProfile?.city}
 								readOnly

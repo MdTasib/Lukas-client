@@ -9,7 +9,9 @@ const ManageProduct = () => {
 		isLoading,
 		refetch,
 	} = useQuery("products", () =>
-		fetch("http://localhost:5000/product").then(res => res.json())
+		fetch("https://damp-scrubland-03827.herokuapp.com/product").then(res =>
+			res.json()
+		)
 	);
 
 	if (isLoading) {
@@ -19,7 +21,7 @@ const ManageProduct = () => {
 	return (
 		<div>
 			<h3>MANAGE ALL PRODUCTS</h3>
-			<table class='table table-striped'>
+			<table className='table table-striped'>
 				<thead>
 					<tr>
 						<th scope='col'>SR</th>

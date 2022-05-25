@@ -16,12 +16,15 @@ const MyOrders = () => {
 		isLoading,
 		refetch,
 	} = useQuery(["purcahsesOrder", user?.email], () =>
-		fetch(`http://localhost:5000/purcahses?email=${user?.email}`, {
-			method: "GET",
-			headers: {
-				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-			},
-		}).then(res => {
+		fetch(
+			`https://damp-scrubland-03827.herokuapp.com/purcahses?email=${user?.email}`,
+			{
+				method: "GET",
+				headers: {
+					authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+				},
+			}
+		).then(res => {
 			if (res.status === 401 || res.status === 403) {
 				signOut(auth);
 				localStorage.removeItem("accessToken");
@@ -42,7 +45,7 @@ const MyOrders = () => {
 			confirmButtonText: "Yes, delete it!",
 		}).then(result => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/purcahses/${id}`, {
+				fetch(`https://damp-scrubland-03827.herokuapp.com/purcahses/${id}`, {
 					method: "DELETE",
 					headers: {
 						"content-type": "application/json",
@@ -65,7 +68,7 @@ const MyOrders = () => {
 	return (
 		<div>
 			<h3>YOUR ORDERS</h3>
-			<table class='table table-striped'>
+			<table className='table table-striped'>
 				<thead>
 					<tr>
 						<th scope='col'>SR</th>

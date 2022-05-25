@@ -9,7 +9,7 @@ import CheckoutForm from "./CheckoutForm";
 
 const Payment = () => {
 	const { id } = useParams();
-	const url = `http://localhost:5000/purcahses/${id}`;
+	const url = `https://damp-scrubland-03827.herokuapp.com/purcahses/${id}`;
 
 	const { data: purcahses, isLoading } = useQuery(["purcahses", id], () =>
 		fetch(url, {
@@ -38,28 +38,28 @@ const Payment = () => {
 			</h3>
 			<div className='row align-items-center'>
 				<div className='col-md-6'>
-					<div class='card border-0 shadow mt-2'>
-						<div class='card-body'>
-							<h5 class='card-title'>
+					<div className='card border-0 shadow mt-2'>
+						<div className='card-body'>
+							<h5 className='card-title'>
 								Hey! <b>{userName}</b>
 							</h5>
-							<h6 class='card-subtitle mb-2 text-muted'>
+							<h6 className='card-subtitle mb-2 text-muted'>
 								Please Pay for <b>{name}</b>
 							</h6>
-							<p class='card-text m-0'>
+							<p className='card-text m-0'>
 								Product Quantity: <b>$ {productQuantity}</b>
 							</p>
-							<p class='card-text m-0'>
+							<p className='card-text m-0'>
 								Per Price: <b>$ {perPrice}</b>
 							</p>
-							<p class='card-text'>
+							<p className='card-text'>
 								Total pay: <b>$ {payPrice}</b>
 							</p>
 						</div>
 					</div>
 
-					<div class='card border-0 shadow my-5'>
-						<div class='card-body'>
+					<div className='card border-0 shadow my-5'>
+						<div className='card-body'>
 							<Elements stripe={stripePromise}>
 								<CheckoutForm product={purcahses} payPrice={payPrice} />
 							</Elements>

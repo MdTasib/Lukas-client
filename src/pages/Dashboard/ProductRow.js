@@ -15,7 +15,7 @@ const ProductRow = ({ product, index, refetch }) => {
 			confirmButtonText: "Yes, delete it!",
 		}).then(result => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/product/${id}`, {
+				fetch(`https://damp-scrubland-03827.herokuapp.com/product/${id}`, {
 					method: "DELETE",
 					headers: {
 						authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -44,7 +44,7 @@ const ProductRow = ({ product, index, refetch }) => {
 		}).then(result => {
 			if (result.isConfirmed) {
 				const newQuantity = product.available + Number(productQuantity);
-				fetch(`http://localhost:5000/product/${id}`, {
+				fetch(`https://damp-scrubland-03827.herokuapp.com/product/${id}`, {
 					method: "PUT",
 					headers: {
 						"content-type": "application/json",
@@ -75,11 +75,11 @@ const ProductRow = ({ product, index, refetch }) => {
 			</td>
 			<td>
 				<form onSubmit={e => handleIncrease(e, product._id)}>
-					<div class='col-auto d-flex aling-itmes-center'>
+					<div className='col-auto d-flex aling-itmes-center'>
 						<input
 							ref={productQuantityRef}
 							type='number'
-							class='form-control w-50'
+							className='form-control w-50'
 							placeholder='Quantity'
 							required
 						/>

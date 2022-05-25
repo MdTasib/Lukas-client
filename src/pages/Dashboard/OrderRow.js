@@ -13,7 +13,7 @@ const OrderRow = ({ order, index, refetch }) => {
 			confirmButtonText: "Yes, delete it!",
 		}).then(result => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/purcahses/${id}`, {
+				fetch(`https://damp-scrubland-03827.herokuapp.com/purcahses/${id}`, {
 					method: "DELETE",
 					headers: {
 						"content-type": "application/json",
@@ -46,7 +46,7 @@ const OrderRow = ({ order, index, refetch }) => {
 					status: "shipped",
 				};
 
-				fetch(`http://localhost:5000/purchases/${id}`, {
+				fetch(`https://damp-scrubland-03827.herokuapp.com/purchases/${id}`, {
 					method: "PUT",
 					headers: {
 						"content-type": "application/json",

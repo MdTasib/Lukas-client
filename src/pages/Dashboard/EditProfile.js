@@ -16,12 +16,15 @@ const EditProfile = () => {
 		isLoading,
 		refetch,
 	} = useQuery(["profile", user?.email], () =>
-		fetch(`http://localhost:5000/userProfile/${user?.email}`, {
-			headers: {
-				"content-type": "application/json",
-				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-			},
-		}).then(res => res.json())
+		fetch(
+			`https://damp-scrubland-03827.herokuapp.com/userProfile/${user?.email}`,
+			{
+				headers: {
+					"content-type": "application/json",
+					authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+				},
+			}
+		).then(res => res.json())
 	);
 
 	const onSubmit = async data => {
@@ -50,14 +53,17 @@ const EditProfile = () => {
 						city: data.city,
 					};
 
-					fetch(`http://localhost:5000/userProfile/${user?.email}`, {
-						method: "PUT",
-						headers: {
-							"content-type": "application/json",
-							authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-						},
-						body: JSON.stringify(userProfile),
-					})
+					fetch(
+						`https://damp-scrubland-03827.herokuapp.com/userProfile/${user?.email}`,
+						{
+							method: "PUT",
+							headers: {
+								"content-type": "application/json",
+								authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+							},
+							body: JSON.stringify(userProfile),
+						}
+					)
 						.then(res => res.json())
 						.then(data => {
 							if (data.acknowledged) {
@@ -110,7 +116,7 @@ const EditProfile = () => {
 
 						<div className='pt-4'>
 							<input
-								class='form-control form-control'
+								className='form-control form-control'
 								id='formFileLg'
 								type='file'
 								{...register("image", { required: { value: true } })}
@@ -136,39 +142,39 @@ const EditProfile = () => {
 						/>
 					</div>
 
-					<div class='pb-2'>
-						<label for='inputAddress' class='form-label'>
+					<div className='pb-2'>
+						<label htmlFor='inputAddress' className='form-label'>
 							Address
 						</label>
 						<input
 							{...register("address", { required: { value: true } })}
 							type='text'
-							class='form-control'
+							className='form-control'
 							id='inputAddress'
 							placeholder={profile?.address}
 						/>
 					</div>
 					<div className='row'>
-						<div class='col-md-6'>
-							<label for='phone' class='form-label'>
+						<div className='col-md-6'>
+							<label htmlFor='phone' className='form-label'>
 								Phone
 							</label>
 							<input
 								{...register("phone", { required: { value: true } })}
 								type='phone'
-								class='form-control'
+								className='form-control'
 								id='phone'
 								placeholder={profile?.phone}
 							/>
 						</div>
-						<div class='col-md-6'>
-							<label for='inputCity' class='form-label'>
+						<div className='col-md-6'>
+							<label htmlFor='inputCity' className='form-label'>
 								City
 							</label>
 							<input
 								{...register("city", { required: { value: true } })}
 								type='text'
-								class='form-control'
+								className='form-control'
 								id='inputCity'
 								placeholder={profile?.city}
 							/>

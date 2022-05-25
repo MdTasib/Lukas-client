@@ -15,12 +15,15 @@ const UserRow = ({ user, index, refetch }) => {
 			confirmButtonText: "Yes, Make Admin",
 		}).then(result => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/user/admin/${email}`, {
-					method: "PUT",
-					headers: {
-						authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-					},
-				})
+				fetch(
+					`https://damp-scrubland-03827.herokuapp.com/user/admin/${email}`,
+					{
+						method: "PUT",
+						headers: {
+							authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+						},
+					}
+				)
 					.then(res => {
 						if (res.status === 403) {
 							Swal.fire({

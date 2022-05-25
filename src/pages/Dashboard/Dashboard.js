@@ -17,34 +17,34 @@ const Dashboard = () => {
 	return (
 		<div className='row container-fluid'>
 			<div className='col-md-3 bg-dark'>
-				<nav class='navbar navbar-expand-lg'>
-					<div class='container flex-column'>
-						<p class='navbar-brand text-white'>Dashboard</p>
+				<nav className='navbar navbar-expand-lg'>
+					<div className='container flex-column'>
+						<p className='navbar-brand text-white'>Dashboard</p>
 						<button
-							class='navbar-toggler'
+							className='navbar-toggler'
 							type='button'
 							data-bs-toggle='collapse'
 							data-bs-target='#sidebar'
 							aria-controls='sidebar'
 							aria-expanded='false'
 							aria-label='Toggle navigation'>
-							<span class='navbar-toggler-icon'></span>
+							<span className='navbar-toggler-icon'></span>
 						</button>
-						<div class='collapse navbar-collapse' id='sidebar'>
-							<ul class='navbar-nav flex-column'>
+						<div className='collapse navbar-collapse' id='sidebar'>
+							<ul className='navbar-nav flex-column'>
 								{!admin && (
 									<>
-										<li class='nav-item'>
+										<li className='nav-item'>
 											<CustomLink
-												class='nav-link text-white'
+												className='nav-link text-white'
 												aria-current='page'
 												to='/dashboard/my-order'>
 												<small>MY ORDERS</small>
 											</CustomLink>
 										</li>
-										<li class='nav-item'>
+										<li className='nav-item'>
 											<CustomLink
-												class='nav-link  text-white'
+												className='nav-link  text-white'
 												aria-current='page'
 												to='/dashboard/review'>
 												<small>ADD REVIEW</small>
@@ -52,9 +52,9 @@ const Dashboard = () => {
 										</li>
 									</>
 								)}
-								<li class='nav-item'>
+								<li className='nav-item'>
 									<CustomLink
-										class='nav-link text-white'
+										className='nav-link text-white'
 										aria-current='page'
 										to='/dashboard/profile'>
 										<small>MY PROFILE</small>
@@ -62,33 +62,33 @@ const Dashboard = () => {
 								</li>
 								{admin && (
 									<>
-										<li class='nav-item'>
+										<li className='nav-item'>
 											<CustomLink
-												class='nav-link text-white'
+												className='nav-link text-white'
 												aria-current='page'
 												to='/dashboard/all-orders'>
 												<small>ALL ORDERS</small>
 											</CustomLink>
 										</li>
-										<li class='nav-item'>
+										<li className='nav-item'>
 											<CustomLink
-												class='nav-link text-white'
+												className='nav-link text-white'
 												aria-current='page'
 												to='/dashboard/manage-product'>
 												<small>MANAGE PRODUCT</small>
 											</CustomLink>
 										</li>
-										<li class='nav-item'>
+										<li className='nav-item'>
 											<CustomLink
-												class='nav-link text-white'
+												className='nav-link text-white'
 												aria-current='page'
 												to='/dashboard/add-product'>
 												<small>ADD PRODUCT</small>
 											</CustomLink>
 										</li>
-										<li class='nav-item'>
+										<li className='nav-item'>
 											<CustomLink
-												class='nav-link text-white'
+												className='nav-link text-white'
 												aria-current='page'
 												to='/dashboard/make-admin'>
 												<small>NEW ADMIN</small>

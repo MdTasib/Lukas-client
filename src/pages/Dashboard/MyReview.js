@@ -18,7 +18,7 @@ const MyReview = () => {
 			date: new Date().toDateString(),
 		};
 
-		fetch(`http://localhost:5000/review`, {
+		fetch(`https://damp-scrubland-03827.herokuapp.com/review`, {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
@@ -43,7 +43,7 @@ const MyReview = () => {
 			<form className='py-4' onSubmit={handleSubmit(onSubmit)}>
 				<select
 					{...register("rating")}
-					class='form-select form-select mb-3 w-75'
+					className='form-select form-select mb-3 w-75'
 					aria-label='form-select-lg example'>
 					<option value='1'>1</option>
 					<option value='2'>2</option>
@@ -51,13 +51,13 @@ const MyReview = () => {
 					<option value='4'>4</option>
 					<option value='5'>5</option>
 				</select>
-				<div class='mb-3'>
-					<label for='review' class='form-label'>
+				<div className='mb-3'>
+					<label htmlFor='review' className='form-label'>
 						Example textarea
 					</label>
 					<textarea
 						{...register("review", { required: true })}
-						class='form-control w-75'
+						className='form-control w-75'
 						id='review'
 						rows='4'></textarea>
 				</div>

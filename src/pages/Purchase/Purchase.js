@@ -5,7 +5,6 @@ import Loading from "../../shared/Loading";
 import background from "../../assets/images/loginbg.jpg";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 const Purchase = () => {
@@ -20,7 +19,7 @@ const Purchase = () => {
 		isLoading,
 		refetch,
 	} = useQuery(["product", id], () =>
-		fetch(`http://localhost:5000/product/${id}`, {
+		fetch(`https://damp-scrubland-03827.herokuapp.com/product/${id}`, {
 			headers: {
 				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
 			},
@@ -37,7 +36,7 @@ const Purchase = () => {
 		const phone = phoneRef.current.value;
 		const productQuantity = productQuantityRef.current.value;
 
-		if (productQuantity < 50) {
+		if (productQuantity < 49) {
 			return Swal.fire({
 				position: "top-center",
 				icon: "warning",
@@ -47,7 +46,7 @@ const Purchase = () => {
 			});
 		}
 
-		if (productQuantity > product.available) {
+		if (productQuantity > product?.available) {
 			return Swal.fire({
 				position: "top-center",
 				icon: "warning",
@@ -69,7 +68,7 @@ const Purchase = () => {
 		};
 
 		// purchase product post on database
-		fetch("http://localhost:5000/product", {
+		fetch("https://damp-scrubland-03827.herokuapp.com/product", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
@@ -94,7 +93,7 @@ const Purchase = () => {
 
 		// update purchase product available quantity on database
 		const newQuantity = product.available - productQuantity;
-		fetch(`http://localhost:5000/product/${id}`, {
+		fetch(`https://damp-scrubland-03827.herokuapp.com/product/${id}`, {
 			method: "PUT",
 			headers: {
 				"content-type": "application/json",
@@ -164,15 +163,15 @@ const Purchase = () => {
 							/>
 						</div>
 						<div>
-							<label for='inputState' class='form-label'>
+							<label htmlFor='inputState' className='form-label'>
 								Quantity - <b>( Minimum Order Quantity - 50)</b>
 							</label>
 							<select
 								defaultValue={product.orderQuantity[1]}
 								ref={productQuantityRef}
 								id='inputState'
-								class='form-select'>
-								{product.orderQuantity.map(quantity => (
+								className='form-select'>
+								{product.orderQuantity.map((quantity, index) => (
 									<option>{quantity}</option>
 								))}
 							</select>

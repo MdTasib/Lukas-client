@@ -6,8 +6,8 @@ const Review = ({ review }) => {
 
 	return (
 		<div className='col'>
-			<div class='card border-0 bg-light h-100'>
-				<div class='card-body text-center'>
+			<div className='card border-0 bg-light h-100'>
+				<div className='card-body text-center'>
 					<div
 						className='bg-white mx-auto text-black rounded-circle d-flex justify-content-center align-items-center border'
 						style={{ width: "70px", height: "70px" }}>
@@ -18,9 +18,11 @@ const Review = ({ review }) => {
 							<img key={index} src={ster} alt='' width={15} className='mx-1' />
 						))}
 					</div>
-					<h5 class='card-title py-2'>{userName}</h5>
-					<small class='card-subtitle mb-2 text-muted'>{reviewText}</small>
-					<small class='fw-bold d-block'>{date?.split(" ").join(" - ")}</small>
+					<h5 className='card-title py-2'>{userName}</h5>
+					<small className='card-subtitle mb-2 text-muted'>{reviewText}</small>
+					<small className='fw-bold d-block'>
+						{date?.split(" ").join(" - ")}
+					</small>
 				</div>
 			</div>
 		</div>
