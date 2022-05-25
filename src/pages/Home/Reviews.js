@@ -1,9 +1,12 @@
 import React from "react";
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 import Loading from "../../shared/Loading";
 import Review from "./Review";
 
 const Reviews = () => {
+	const navigate = useNavigate();
+
 	const { data: reviews, isLoading } = useQuery("reviews", () =>
 		fetch("http://localhost:5000/review").then(res => res.json())
 	);
@@ -24,6 +27,13 @@ const Reviews = () => {
 				{latestReviews.map(review => (
 					<Review key={review._id} review={review} />
 				))}
+			</div>
+			<div className='text-center pt-5'>
+				<button
+					onClick={() => navigate("/all-reviews")}
+					className='btn btn-dark'>
+					SEE ALL REVIEWS
+				</button>
 			</div>
 		</section>
 	);
