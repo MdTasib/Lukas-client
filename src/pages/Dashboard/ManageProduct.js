@@ -25,6 +25,7 @@ const ManageProduct = () => {
 						<th scope='col'>SR</th>
 						<th scope='col'>Product</th>
 						<th scope='col'>Stock</th>
+						<th scope='col'>Increase Stock</th>
 						<th scope='col'>Delete</th>
 					</tr>
 				</thead>

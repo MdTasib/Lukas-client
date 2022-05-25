@@ -72,14 +72,18 @@ const OrderRow = ({ order, index, refetch }) => {
 	return (
 		<tr key={order._id}>
 			<th scope='row'>{index + 1}</th>
-			<td>{order.userEmail}</td>
-			<td>{order.name}</td>
+			<td>
+				<small>{order.userEmail}</small>
+			</td>
+			<td>
+				<small>{order.name}</small>
+			</td>
 			<td>
 				{order.status === "pending" && (
 					<button
 						onClick={handlePending}
 						className='btn btn-sm btn-outline-info fw-bold me-2'>
-						PENDING...
+						<small>PENDING...</small>
 					</button>
 				)}
 				{(order.status === "pending" || order.status === "shipped") && (
@@ -87,12 +91,12 @@ const OrderRow = ({ order, index, refetch }) => {
 						onClick={() => handleShipped(order._id)}
 						disabled={order.status === "shipped"}
 						className='btn btn-sm btn-outline-success fw-bold'>
-						SHIPPED
+						<small>SHIPPED</small>
 					</button>
 				)}
 				{!order.paid && (
 					<button className='btn btn-sm btn-outline-dark fw-bold'>
-						UNPAID
+						<small>UNPAID</small>
 					</button>
 				)}
 			</td>
@@ -101,7 +105,7 @@ const OrderRow = ({ order, index, refetch }) => {
 					disabled={order.paid}
 					onClick={() => handleDelete(order._id)}
 					className='btn btn-sm btn-outline-danger fw-bold me-2'>
-					DELETE
+					<small>DELETE</small>
 				</button>
 			</td>
 		</tr>
