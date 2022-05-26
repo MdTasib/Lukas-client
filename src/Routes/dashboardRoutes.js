@@ -1,3 +1,7 @@
+/**
+ * all dashboard routes
+ */
+
 import EditProfile from "../pages/Dashboard/EditProfile";
 import MyOrders from "../pages/Dashboard/MyOrders";
 import MyReview from "../pages/Dashboard/MyReview";

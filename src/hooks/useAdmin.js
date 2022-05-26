@@ -1,3 +1,7 @@
+/**
+ * this hook is check user is ADMIN. if user is not ADMIN. user don't go to ADMIN routes
+ */
+
 import { useState, useEffect } from "react";
 
 const useAdmin = user => {

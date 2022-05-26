@@ -1,3 +1,7 @@
+/**
+ * all public routes, not private routes
+ */
+
 import AllItems from "../pages/AlIItems/AllItems";
 import AllReviews from "../pages/AllReviews/AllReviews";
 import Blog from "../pages/Blog/Blog";

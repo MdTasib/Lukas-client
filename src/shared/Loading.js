@@ -1,3 +1,7 @@
+/**
+ * This is Loading component
+ */
+
 import React from "react";
 
 const Loading = () => {

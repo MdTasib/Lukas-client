@@ -1,5 +1,9 @@
-import { signOut } from "firebase/auth";
+/**
+ * This is Navbar component
+ */
+
 import React from "react";
+import { signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo-light.png";

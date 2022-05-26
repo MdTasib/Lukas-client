@@ -1,3 +1,7 @@
+/**
+ * all admin routes
+ */
+
 import AddProduct from "../pages/Dashboard/AddProduct";
 import AllOrders from "../pages/Dashboard/AllOrders";
 import MakeAdmin from "../pages/Dashboard/MakeAdmin";

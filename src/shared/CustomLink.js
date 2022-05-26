@@ -1,3 +1,7 @@
+/**
+ * This is CustomLink component. custom link works like ( navlink, link ). But the extra facility is an active route help to understand
+ */
+
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
 function CustomLink({ children, to, ...props }) {

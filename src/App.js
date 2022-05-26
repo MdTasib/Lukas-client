@@ -1,3 +1,7 @@
+/**
+ * This is the main file on this application
+ */
+
 import React from "react";
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";

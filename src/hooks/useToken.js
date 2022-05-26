@@ -1,3 +1,7 @@
+/**
+ * This hook is check user verify jwt (json web token). if user is not verify. user don't go to any private routes. like (don't purchase product, go to all order page, dashboard, etc);
+ */
+
 import { useEffect, useState } from "react";
 
 const useToken = user => {
