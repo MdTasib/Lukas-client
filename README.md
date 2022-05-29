@@ -2,7 +2,7 @@
 
 ### `LIVE PREVIEW` [https://lukas-bd.web.app/](https://lukas-bd.web.app/)
 
-### `SERVER SIDE CODE` [https://github.com/programming-hero-web-course1/manufacturer-website-server-side-MdTasib](https://github.com/programming-hero-web-course1/manufacturer-website-server-side-MdTasib)
+### `SERVER SIDE CODE` [https://github.com/MdTasib/Lukas-backend](https://github.com/MdTasib/Lukas-backend)
 
 ## `ADMIN LOGIN`
 
