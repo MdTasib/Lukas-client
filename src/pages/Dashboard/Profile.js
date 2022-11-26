@@ -9,15 +9,12 @@ const Profile = () => {
 	const [userProfile, setUserProfile] = useState({});
 
 	useEffect(() => {
-		fetch(
-			`https://damp-scrubland-03827.herokuapp.com/userProfile/${user?.email}`,
-			{
-				headers: {
-					"content-type": "application/json",
-					authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-				},
-			}
-		)
+		fetch(`https://lukas-backend.vercel.app/userProfile/${user?.email}`, {
+			headers: {
+				"content-type": "application/json",
+				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+			},
+		})
 			.then(res => res.json())
 			.then(data => setUserProfile(data));
 	}, [user?.email]);

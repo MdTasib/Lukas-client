@@ -8,9 +8,7 @@ const Items = () => {
 	const navigate = useNavigate();
 
 	const { data: products, isLoading } = useQuery("products", () =>
-		fetch("https://damp-scrubland-03827.herokuapp.com/product").then(res =>
-			res.json()
-		)
+		fetch("https://lukas-backend.vercel.app/product").then(res => res.json())
 	);
 
 	if (isLoading) {

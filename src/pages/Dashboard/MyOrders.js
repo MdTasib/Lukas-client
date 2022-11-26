@@ -16,15 +16,12 @@ const MyOrders = () => {
 		isLoading,
 		refetch,
 	} = useQuery(["purcahsesOrder", user?.email], () =>
-		fetch(
-			`https://damp-scrubland-03827.herokuapp.com/purcahses?email=${user?.email}`,
-			{
-				method: "GET",
-				headers: {
-					authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-				},
-			}
-		).then(res => {
+		fetch(`https://lukas-backend.vercel.app/purcahses?email=${user?.email}`, {
+			method: "GET",
+			headers: {
+				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+			},
+		}).then(res => {
 			if (res.status === 401 || res.status === 403) {
 				signOut(auth);
 				localStorage.removeItem("accessToken");
@@ -45,7 +42,7 @@ const MyOrders = () => {
 			confirmButtonText: "Yes, delete it!",
 		}).then(result => {
 			if (result.isConfirmed) {
-				fetch(`https://damp-scrubland-03827.herokuapp.com/purcahses/${id}`, {
+				fetch(`https://lukas-backend.vercel.app/purcahses/${id}`, {
 					method: "DELETE",
 					headers: {
 						"content-type": "application/json",

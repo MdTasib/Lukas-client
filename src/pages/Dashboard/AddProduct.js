@@ -33,7 +33,7 @@ const AddProduct = () => {
 				};
 
 				if (result.success) {
-					fetch(`https://damp-scrubland-03827.herokuapp.com/uploadProduct`, {
+					fetch(`https://lukas-backend.vercel.app/uploadProduct`, {
 						method: "POST",
 						headers: {
 							"content-type": "application/json",

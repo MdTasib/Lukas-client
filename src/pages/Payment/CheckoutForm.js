@@ -15,7 +15,7 @@ const CheckoutForm = ({ product, payPrice }) => {
 	const { _id, userName, userEmail, name } = product;
 
 	useEffect(() => {
-		fetch("https://damp-scrubland-03827.herokuapp.com/create-payment-intent", {
+		fetch("https://lukas-backend.vercel.app/create-payment-intent", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
@@ -94,7 +94,7 @@ const CheckoutForm = ({ product, payPrice }) => {
 				transactionId: paymentIntent.id,
 			};
 
-			fetch(`https://damp-scrubland-03827.herokuapp.com/purcahses/${_id}`, {
+			fetch(`https://lukas-backend.vercel.app/purcahses/${_id}`, {
 				method: "PATCH",
 				headers: {
 					"content-type": "application/json",

@@ -8,9 +8,7 @@ const Reviews = () => {
 	const navigate = useNavigate();
 
 	const { data: reviews, isLoading } = useQuery("reviews", () =>
-		fetch("https://damp-scrubland-03827.herokuapp.com/review").then(res =>
-			res.json()
-		)
+		fetch("https://lukas-backend.vercel.app/review").then(res => res.json())
 	);
 
 	if (isLoading) {

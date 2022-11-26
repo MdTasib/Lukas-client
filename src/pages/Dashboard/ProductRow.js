@@ -15,7 +15,7 @@ const ProductRow = ({ product, index, refetch }) => {
 			confirmButtonText: "Yes, delete it!",
 		}).then(result => {
 			if (result.isConfirmed) {
-				fetch(`https://damp-scrubland-03827.herokuapp.com/product/${id}`, {
+				fetch(`https://lukas-backend.vercel.app/product/${id}`, {
 					method: "DELETE",
 					headers: {
 						authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -44,7 +44,7 @@ const ProductRow = ({ product, index, refetch }) => {
 		}).then(result => {
 			if (result.isConfirmed) {
 				const newQuantity = product.available + Number(productQuantity);
-				fetch(`https://damp-scrubland-03827.herokuapp.com/product/${id}`, {
+				fetch(`https://lukas-backend.vercel.app/product/${id}`, {
 					method: "PUT",
 					headers: {
 						"content-type": "application/json",

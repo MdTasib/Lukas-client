@@ -18,7 +18,7 @@ const MyReview = () => {
 			date: new Date().toDateString(),
 		};
 
-		fetch(`https://damp-scrubland-03827.herokuapp.com/review`, {
+		fetch(`https://lukas-backend.vercel.app/review`, {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",

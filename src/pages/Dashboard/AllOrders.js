@@ -9,7 +9,7 @@ const AllOrders = () => {
 		isLoading,
 		refetch,
 	} = useQuery("allOrders", () =>
-		fetch("https://damp-scrubland-03827.herokuapp.com/purchases", {
+		fetch("https://lukas-backend.vercel.app/purchases", {
 			method: "GET",
 			headers: {
 				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
