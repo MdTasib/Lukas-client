@@ -33,7 +33,7 @@ const AddProduct = () => {
 				};
 
 				if (result.success) {
-					fetch(`https://lukas-backend.vercel.app/uploadProduct`, {
+					fetch(`https://lukas-server.onrender.com/uploadProduct`, {
 						method: "POST",
 						headers: {
 							"content-type": "application/json",

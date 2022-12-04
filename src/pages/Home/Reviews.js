@@ -8,7 +8,7 @@ const Reviews = () => {
 	const navigate = useNavigate();
 
 	const { data: reviews, isLoading } = useQuery("reviews", () =>
-		fetch("https://lukas-backend.vercel.app/review").then(res => res.json())
+		fetch("https://lukas-server.onrender.com/review").then(res => res.json())
 	);
 
 	if (isLoading) {

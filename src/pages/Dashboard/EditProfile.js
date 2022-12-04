@@ -16,7 +16,7 @@ const EditProfile = () => {
 		isLoading,
 		refetch,
 	} = useQuery(["profile", user?.email], () =>
-		fetch(`https://lukas-backend.vercel.app/userProfile/${user?.email}`, {
+		fetch(`https://lukas-server.onrender.com/userProfile/${user?.email}`, {
 			headers: {
 				"content-type": "application/json",
 				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -50,14 +50,17 @@ const EditProfile = () => {
 						city: data.city,
 					};
 
-					fetch(`https://lukas-backend.vercel.app/userProfile/${user?.email}`, {
-						method: "PUT",
-						headers: {
-							"content-type": "application/json",
-							authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-						},
-						body: JSON.stringify(userProfile),
-					})
+					fetch(
+						`https://lukas-server.onrender.com/userProfile/${user?.email}`,
+						{
+							method: "PUT",
+							headers: {
+								"content-type": "application/json",
+								authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+							},
+							body: JSON.stringify(userProfile),
+						}
+					)
 						.then(res => res.json())
 						.then(data => {
 							if (data.acknowledged) {

@@ -9,7 +9,7 @@ const Profile = () => {
 	const [userProfile, setUserProfile] = useState({});
 
 	useEffect(() => {
-		fetch(`https://lukas-backend.vercel.app/userProfile/${user?.email}`, {
+		fetch(`https://lukas-server.onrender.com/userProfile/${user?.email}`, {
 			headers: {
 				"content-type": "application/json",
 				authorization: `Bearer ${localStorage.getItem("accessToken")}`,

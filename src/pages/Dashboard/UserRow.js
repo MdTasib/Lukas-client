@@ -15,7 +15,7 @@ const UserRow = ({ user, index, refetch }) => {
 			confirmButtonText: "Yes, Make Admin",
 		}).then(result => {
 			if (result.isConfirmed) {
-				fetch(`https://lukas-backend.vercel.app/user/admin/${email}`, {
+				fetch(`https://lukas-server.onrender.com/user/admin/${email}`, {
 					method: "PUT",
 					headers: {
 						authorization: `Bearer ${localStorage.getItem("accessToken")}`,

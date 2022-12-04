@@ -12,7 +12,7 @@ const useToken = user => {
 		const currentUser = { email: email };
 
 		if (email) {
-			fetch(`https://lukas-backend.vercel.app/user/${email}`, {
+			fetch(`https://lukas-server.onrender.com/user/${email}`, {
 				method: "PUT",
 				headers: {
 					"content-type": "application/json",

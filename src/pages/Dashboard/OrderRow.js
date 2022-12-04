@@ -13,7 +13,7 @@ const OrderRow = ({ order, index, refetch }) => {
 			confirmButtonText: "Yes, delete it!",
 		}).then(result => {
 			if (result.isConfirmed) {
-				fetch(`https://lukas-backend.vercel.app/purcahses/${id}`, {
+				fetch(`https://lukas-server.onrender.com/purcahses/${id}`, {
 					method: "DELETE",
 					headers: {
 						"content-type": "application/json",
@@ -46,7 +46,7 @@ const OrderRow = ({ order, index, refetch }) => {
 					status: "shipped",
 				};
 
-				fetch(`https://lukas-backend.vercel.app/purchases/${id}`, {
+				fetch(`https://lukas-server.onrender.com/purchases/${id}`, {
 					method: "PUT",
 					headers: {
 						"content-type": "application/json",

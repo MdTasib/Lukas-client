@@ -9,7 +9,7 @@ const MakeAdmin = () => {
 		isLoading,
 		refetch,
 	} = useQuery("users", () =>
-		fetch("https://lukas-backend.vercel.app/user", {
+		fetch("https://lukas-server.onrender.com/user", {
 			headers: {
 				"content-type": "application/json",
 				authorization: `Bearer ${localStorage.getItem("accessToken")}`,

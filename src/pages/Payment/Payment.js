@@ -9,7 +9,7 @@ import CheckoutForm from "./CheckoutForm";
 
 const Payment = () => {
 	const { id } = useParams();
-	const url = `https://lukas-backend.vercel.app/purcahses/${id}`;
+	const url = `https://lukas-server.onrender.com/purcahses/${id}`;
 
 	const { data: purcahses, isLoading } = useQuery(["purcahses", id], () =>
 		fetch(url, {

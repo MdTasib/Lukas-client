@@ -11,7 +11,7 @@ const useAdmin = user => {
 	useEffect(() => {
 		const email = user?.email;
 		if (email) {
-			fetch(`https://lukas-backend.vercel.app/admin/${email}`, {
+			fetch(`https://lukas-server.onrender.com/admin/${email}`, {
 				method: "GET",
 				headers: {
 					"content-type": "application/json",

@@ -7,7 +7,7 @@ import Review from "../Home/Review";
 
 const AllReviews = () => {
 	const { data: reviews, isLoading } = useQuery("reviews", () =>
-		fetch("https://lukas-backend.vercel.app/review").then(res => res.json())
+		fetch("https://lukas-server.onrender.com/review").then(res => res.json())
 	);
 
 	if (isLoading) {

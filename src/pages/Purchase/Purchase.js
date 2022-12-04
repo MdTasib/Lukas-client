@@ -19,7 +19,7 @@ const Purchase = () => {
 		isLoading,
 		refetch,
 	} = useQuery(["product", id], () =>
-		fetch(`https://lukas-backend.vercel.app/product/${id}`, {
+		fetch(`https://lukas-server.onrender.com/product/${id}`, {
 			headers: {
 				authorization: `Bearer ${localStorage.getItem("accessToken")}`,
 			},
@@ -68,7 +68,7 @@ const Purchase = () => {
 		};
 
 		// purchase product post on database
-		fetch("https://lukas-backend.vercel.app/product", {
+		fetch("https://lukas-server.onrender.com/product", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
@@ -93,7 +93,7 @@ const Purchase = () => {
 
 		// update purchase product available quantity on database
 		const newQuantity = product.available - productQuantity;
-		fetch(`https://lukas-backend.vercel.app/product/${id}`, {
+		fetch(`https://lukas-server.onrender.com/product/${id}`, {
 			method: "PUT",
 			headers: {
 				"content-type": "application/json",

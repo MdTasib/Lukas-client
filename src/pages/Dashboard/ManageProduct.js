@@ -9,7 +9,7 @@ const ManageProduct = () => {
 		isLoading,
 		refetch,
 	} = useQuery("products", () =>
-		fetch("https://lukas-backend.vercel.app/product").then(res => res.json())
+		fetch("https://lukas-server.onrender.com/product").then(res => res.json())
 	);
 
 	if (isLoading) {

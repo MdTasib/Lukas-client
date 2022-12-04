@@ -18,7 +18,7 @@ const MyReview = () => {
 			date: new Date().toDateString(),
 		};
 
-		fetch(`https://lukas-backend.vercel.app/review`, {
+		fetch(`https://lukas-server.onrender.com/review`, {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
